@@ -7,7 +7,9 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach --all run build && yarn create-index && yarn publish-actions",
+    "build": "yarn build:cm && yarn build:non-cm && yarn create-index && yarn publish-actions",
+    "build:cm": "yarn workspaces foreach -Ap --include 'packages/*.cm' run build",
+    "build:non-cm": "yarn workspaces foreach -Ap --include 'packages/*' --exclude 'packages/*.cm' run build",
     "create-index": "cweb-tool create-index .cweb-config/dapp-ecosystem.yaml .dapp-ecosystem-lock.yaml",
     "gather-actions": "cweb-tool gather-actions .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml",
     "filter-actions": "cweb-tool filter-actions --api-endpoint https://api-devnet.coinweb.io/wallet -n DEVNET_L1A ./.unfiltered-actions.yaml .actions.yaml",
