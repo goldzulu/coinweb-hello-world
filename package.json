@@ -3,10 +3,11 @@
   "packageManager": "yarn@4.0.2",
   "private": true,
   "workspaces": [
+    "packages/hello-world.cm",
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach --all -p run build && yarn create-index && yarn publish-actions",
+    "build": "yarn workspaces foreach --all run build && yarn create-index && yarn publish-actions",
     "create-index": "cweb-tool create-index .cweb-config/dapp-ecosystem.yaml .dapp-ecosystem-lock.yaml",
     "gather-actions": "cweb-tool gather-actions .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml",
     "filter-actions": "cweb-tool filter-actions --api-endpoint https://api-devnet.coinweb.io/wallet -n DEVNET_L1A ./.unfiltered-actions.yaml .actions.yaml",

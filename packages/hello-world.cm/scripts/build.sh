@@ -9,7 +9,7 @@ mkdir -p $ROOT/{cweb_dist/{on,off}chain,dist/tmp/{step{1,2,3},final}}
 
 (
   cd $ROOT
-  cp src/offchain/index.js cweb_dist/offchain/
+  cp -rf src/offchain/ cweb_dist/offchain/
 
   ## Bundle and transpile `index.js` so it can be understood by the quickjs interpreter:
   echo 'import {cwebMain as f} from "../../../src/onchain/index"; f();' \
