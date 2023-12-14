@@ -1,0 +1,32 @@
+{
+  "name": "hello-world-cweb-dapp",
+  "packageManager": "yarn@4.0.2",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach --all -p run build && yarn create-index && yarn publish-actions",
+    "create-index": "cweb-tool create-index .cweb-config/dapp-ecosystem.yaml .dapp-ecosystem-lock.yaml",
+    "gather-actions": "cweb-tool gather-actions .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml",
+    "filter-actions": "cweb-tool filter-actions --api-endpoint https://api-devnet.coinweb.io/wallet -n DEVNET_L1A ./.unfiltered-actions.yaml .actions.yaml",
+    "execute-actions": "echo \"*** THIS MIGHT TAKE A LONG TIME ***\"; sleep 1; cweb-tool execute-actions ./.actions.yaml ./cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
+    "publish-actions": "cweb-tool publish .cweb-config/dapp-ecosystem.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
+    "call-contract": "yarn call-contract:prepare && yarn call-contract:invoke",
+    "call-contract:prepare": "yarn workspaces foreach --all run prepare-for-package && python3 ./.cweb-config/create-calls.py",
+    "call-contract:invoke": "cweb-tool call .cweb-config/calls.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
+    "clean:me": "rm -rf .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml .actions.yaml",
+    "clean": "yarn clean:me && yarn workspaces foreach --all --p run clean",
+    "chore:prettier": "npx prettier --write **/*.{js,json}"
+  },
+  "resolutions": {
+    "@coinweb/cweb-tool": "1.0.11-146cf9b25d087ae7d0d9f319bf9d8682a24621c7"
+  },
+  "devDependencies": {
+    "@coinweb/cweb-tool": "1.0.11-146cf9b25d087ae7d0d9f319bf9d8682a24621c7"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "write-yaml-file": "^5.0.0"
+  }
+}

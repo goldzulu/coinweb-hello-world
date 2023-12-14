@@ -1,0 +1,2 @@
+calls:
+    - !include packages/hello-world.cm/deploy/.calls-package.yaml
