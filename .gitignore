@@ -8,3 +8,5 @@ tmp
 **/.calls-package.yaml
 .dapp-ecosystem-lock.yaml
 .pnp.*
+.vscode/*
+.yarn/sdks/*
