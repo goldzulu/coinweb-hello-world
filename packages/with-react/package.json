@@ -12,7 +12,8 @@
   "dependencies": {
     "hello-world.cm": "workspaces:*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@coinweb/wallet-lib": "^0.1.112-esm"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
