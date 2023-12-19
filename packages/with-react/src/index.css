@@ -14,11 +14,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background-color: #143167;
-  color: white;
-}
-
 a {
   color: inherit;
   text-decoration: inherit;
@@ -27,9 +22,10 @@ a {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(180deg, #143167 25%, #181a59 75%);
 }
 
 h1 {
@@ -46,4 +42,8 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+p {
+  word-break: break-all;
 }

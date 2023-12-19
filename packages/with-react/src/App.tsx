@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
+import coinwebLogo from "./assets/coinweb-logo.svg";
 
 import { IssuedClaim, useContractClaims } from "./hooks";
 
@@ -53,66 +54,67 @@ function App() {
 
   return (
     <>
-      <div>
+      <header>
+        <a href="https://coinweb.io" target="_blank">
+          <img src={coinwebLogo} className="logo coinweb" alt="Coinweb logo" />
+        </a>
+        <span>{" x "}</span>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-      </div>
+      </header>
+      <main>
+        <h1>Hello World</h1>
+        <h2>Contract ID</h2>
+        <p>{contractId}</p>
 
-      <h1>
-        <a href="https://coinweb.io" target="_blank">
-          Coinweb
-        </a>{" "}
-        + React
-      </h1>
+        <br />
 
-      <h2>Hello World</h2>
+        {isLoading ? (
+          <div className="loader" />
+        ) : (
+          claimForm && (
+            <div className="claim">
+              <form className="claim-form" onSubmit={onSubmitHandler}>
+                <div className="input-wrapper">
+                  <input
+                    value={claimForm.keyFirstPart}
+                    onChange={onClaimFieldChangeHandler("keyFirstPart")}
+                  />
+                  <span className="input-label">First key</span>
+                </div>
+                <div className="input-wrapper">
+                  <input
+                    value={claimForm.keySecondPart}
+                    onChange={onClaimFieldChangeHandler("keySecondPart")}
+                  />
+                  <span className="input-label">Second key</span>
+                </div>
+                <div className="input-wrapper">
+                  <input
+                    value={claimForm.claimBody}
+                    onChange={onClaimFieldChangeHandler("claimBody")}
+                  />
+                  <span className="input-label">Claim body</span>
+                </div>
 
-      <p>Contract ID</p>
-      <p>{contractId}</p>
-
-      <br />
-
-      {isLoading ? (
-        <div className="loader" />
-      ) : (
-        claimForm && (
-          <div className="claim">
-            <form className="claim-form" onSubmit={onSubmitHandler}>
-              <div className="input-wrapper">
-                <input
-                  value={claimForm.keyFirstPart}
-                  onChange={onClaimFieldChangeHandler("keyFirstPart")}
-                />
-                <span className="input-label">First key</span>
-              </div>
-              <div className="input-wrapper">
-                <input
-                  value={claimForm.keySecondPart}
-                  onChange={onClaimFieldChangeHandler("keySecondPart")}
-                />
-                <span className="input-label">Second key</span>
-              </div>
-              <div className="input-wrapper">
-                <input
-                  value={claimForm.claimBody}
-                  onChange={onClaimFieldChangeHandler("claimBody")}
-                />
-                <span className="input-label">Claim body</span>
-              </div>
-
-              <button type="submit">Validate claim</button>
-              <span
-                className={`valid-indicator ${
-                  isValid !== undefined && (isValid ? "valid" : "invalid")
-                }`}
-              >
-                {isValid ? "✅ Claim is valid" : "❌ Claim is invalid"}
-              </span>
-            </form>
-          </div>
-        )
-      )}
+                <button type="submit">Validate claim</button>
+                <span
+                  className={`valid-indicator ${
+                    isValid !== undefined && (isValid ? "valid" : "invalid")
+                  }`}
+                >
+                  {isValid ? "✅ Claim is valid" : "❌ Claim is invalid"}
+                </span>
+              </form>
+            </div>
+          )
+        )}
+      </main>
+      <footer>
+        © {new Date().getFullYear()} Coinweb — True Interoperability. Real world
+        usage.
+      </footer>
     </>
   );
 }
