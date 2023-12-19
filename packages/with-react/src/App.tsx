@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 
-import * as helloWorldCm from "hello-world.cm";
 import { IssuedClaim, useContractClaims } from "./hooks";
 
 interface FormState {
@@ -14,7 +13,7 @@ interface FormState {
 function App() {
   const [claimForm, setClaimForm] = useState<FormState>();
 
-  const { fetchClaims, validateClaim, claim, isValid, isLoading } =
+  const { fetchClaims, validateClaim, claim, contractId, isValid, isLoading } =
     useContractClaims();
 
   useEffect(() => {
@@ -61,15 +60,16 @@ function App() {
       </div>
 
       <h1>
-        <a href="https://coinweb.io" target="_blank" className="coinweb">
+        <a href="https://coinweb.io" target="_blank">
           Coinweb
         </a>{" "}
         + React
       </h1>
 
       <h2>Hello World</h2>
-      <p>ContractID</p>
-      <p>{helloWorldCm.contractId}</p>
+
+      <p>Contract ID</p>
+      <p>{contractId}</p>
 
       <br />
 
@@ -79,21 +79,28 @@ function App() {
         claimForm && (
           <div className="claim">
             <form className="claim-form" onSubmit={onSubmitHandler}>
-              <input
-                name="keyFirstPart"
-                value={claimForm.keyFirstPart}
-                onChange={onClaimFieldChangeHandler("keyFirstPart")}
-              />
-              <input
-                name="keySecondPart"
-                value={claimForm.keySecondPart}
-                onChange={onClaimFieldChangeHandler("keySecondPart")}
-              />
-              <input
-                name="claimBody"
-                value={claimForm.claimBody}
-                onChange={onClaimFieldChangeHandler("claimBody")}
-              />
+              <div className="input-wrapper">
+                <input
+                  value={claimForm.keyFirstPart}
+                  onChange={onClaimFieldChangeHandler("keyFirstPart")}
+                />
+                <span className="input-label">First key</span>
+              </div>
+              <div className="input-wrapper">
+                <input
+                  value={claimForm.keySecondPart}
+                  onChange={onClaimFieldChangeHandler("keySecondPart")}
+                />
+                <span className="input-label">Second key</span>
+              </div>
+              <div className="input-wrapper">
+                <input
+                  value={claimForm.claimBody}
+                  onChange={onClaimFieldChangeHandler("claimBody")}
+                />
+                <span className="input-label">Claim body</span>
+              </div>
+
               <button type="submit">Validate claim</button>
               <span
                 className={`valid-indicator ${

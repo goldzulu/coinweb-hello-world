@@ -37,14 +37,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   min-width: 250px;
-}
-
-.claim input {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
 
 .claim button {
@@ -65,6 +59,27 @@
 .claim button:focus {
   outline: none;
   border: none;
+}
+
+.claim input {
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.claim .input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.claim .input-wrapper > .input-label {
+  position: absolute;
+  font-size: 10px;
+  top: 0;
+  left: 15px;
+  transform: translateY(-100%);
 }
 
 .valid-indicator {

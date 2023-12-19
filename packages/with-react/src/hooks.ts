@@ -53,6 +53,7 @@ export const useContractClaims = () => {
     fetchClaims,
     validateClaim,
     claim: claims.current?.[0],
+    contractId: helloWorldCm.contractId,
     isValid,
     isLoading: isLoadingClaims,
   };
