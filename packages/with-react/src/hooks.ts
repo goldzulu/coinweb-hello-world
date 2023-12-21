@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
-import * as CwebWallet from "@coinweb/wallet-lib";
-import { NetworkName } from "@coinweb/wallet-lib/enums";
-import * as helloWorldCm from "hello-world.cm";
+import { useRef, useState } from 'react';
+import * as CwebWallet from '@coinweb/wallet-lib';
+import { NetworkName } from '@coinweb/wallet-lib/enums';
+import * as helloWorldCm from 'hello-world.cm';
 
-const DEV_COINWEB_ENDPOINT = "https://api-devnet.coinweb.io/wallet";
+const DEV_COINWEB_ENDPOINT = 'https://api-devnet.coinweb.io/wallet';
 
 const cwebWalletNode = CwebWallet.connect_to_node(DEV_COINWEB_ENDPOINT);
 
