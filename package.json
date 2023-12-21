@@ -18,9 +18,8 @@
     "call-contract": "yarn call-contract:prepare && yarn call-contract:invoke",
     "call-contract:prepare": "yarn workspaces foreach --all run prepare-for-package && python3 ./.cweb-config/create-calls.py",
     "call-contract:invoke": "cweb-tool call .cweb-config/calls.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
-    "clean:me": "rm -rf .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml .actions.yaml",
     "clean": "yarn clean:me && yarn workspaces foreach --all --p run clean",
-    "chore:prettier": "npx prettier --write **/*.{js,json}",
+    "clean:me": "rm -rf .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml .actions.yaml",
     "setup-ide:vscode": "yarn dlx @yarnpkg/sdks vscode"
   },
   "resolutions": {
