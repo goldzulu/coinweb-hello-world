@@ -1483,10 +1483,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/contract-kit@npm:^0.0.8":
-  version: 0.0.8
-  resolution: "@coinweb/contract-kit@npm:0.0.8"
-  checksum: b26e2c523bab745e566f006eeaa7e4df5189098bef2052421204f3e038ba2aa81883e415c3fc7b523a1edf9ab9075f0e6723565d7bf5f88ac5727d76f10e6ea6
+"@coinweb/contract-kit@npm:^0.0.17":
+  version: 0.0.17
+  resolution: "@coinweb/contract-kit@npm:0.0.17"
+  checksum: c50d42e7b31dd04684a1263eea8f812ca2990abcb6437f4cfd5db59fcbebc5b724bc5868cffc68ef536cda9cd8af6e8a04014910769e486cb7385836087b7a3c
   languageName: node
   linkType: hard
 
@@ -1535,33 +1535,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/data-hasher@npm:^0.0.8":
-  version: 0.0.8
-  resolution: "@coinweb/data-hasher@npm:0.0.8"
+"@coinweb/data-hasher@npm:^0.0.17":
+  version: 0.0.17
+  resolution: "@coinweb/data-hasher@npm:0.0.17"
   dependencies:
     "@babel/polyfill": "npm:^7.12.1"
     "@coinweb/base64-polyfill": "npm:^0.0.1"
-    "@coinweb/contract-kit": "npm:^0.0.8"
+    "@coinweb/contract-kit": "npm:^0.0.17"
     "@noble/hashes": "npm:^1.3.2"
+    "@types/npm": "npm:^7.19.3"
     bigint-polyfill: "npm:^0.1.0"
     jsbi: "npm:^4.3.0"
     text-encoding: "npm:^0.7.0"
-  checksum: c24b7f3aa7fd764db8bb2775054b1ec2ed0baf6a94fee3b24e876256408365d25674f2b207e0e3a887862bef6ef79a169903b78450fbf1120175b1ac7e83235d
+  checksum: cddea854b869c524965524791e679d1a70417591f5ddc2056ccaf18356f2d556ea00d616d37e53595218b7b1a9d0569284dc4a520d6229560072e15517951f43
   languageName: node
   linkType: hard
 
-"@coinweb/self-register@npm:^0.0.14":
-  version: 0.0.14
-  resolution: "@coinweb/self-register@npm:0.0.14"
+"@coinweb/self-register@npm:^0.0.21":
+  version: 0.0.21
+  resolution: "@coinweb/self-register@npm:0.0.21"
   dependencies:
     "@babel/polyfill": "npm:^7.12.1"
-    "@coinweb/contract-kit": "npm:^0.0.8"
-    "@coinweb/data-hasher": "npm:^0.0.8"
+    "@coinweb/contract-kit": "npm:^0.0.17"
+    "@coinweb/data-hasher": "npm:^0.0.17"
     "@noble/hashes": "npm:^1.3.2"
     bigint-polyfill: "npm:^0.1.0"
     jsbi: "npm:^4.3.0"
     text-encoding: "npm:^0.7.0"
-  checksum: d767645e7d9e5be394d3f0ce9155e3840ae018c7b927760736cefa20d6187f343940a1422367ac8bb25669e1c471264277d80db7a72fe0b89a2afc6ea3b5f671
+  checksum: 5e1d7e7d1d549af94df9425b868669ee916554f2486dbadb112dfbdec964b6389f8b5f4ee5faf7289be74671eae43300be4521876c72c302e5a9bfa1b1014f88
   languageName: node
   linkType: hard
 
@@ -2235,6 +2236,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: be30609aae0bfe492097815f166ccc07f465220cb604647fa4e5ec05a1d16c012a41b82b5f11ecfe2485cbb479d4d20384b95b809ca0bcff6d94d5bbafa645bb
+  languageName: node
+  linkType: hard
+
+"@types/npm@npm:^7.19.3":
+  version: 7.19.3
+  resolution: "@types/npm@npm:7.19.3"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 5b6764355d0440bd741f362df13fab595f454574157c08d4794f9067b11936b73bf7980773bfe6b53b18e126624ad62caff4414fb13f39b296ae4a732c69dfaf
   languageName: node
   linkType: hard
 
@@ -3033,9 +3043,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001565":
-  version: 1.0.30001570
-  resolution: "caniuse-lite@npm:1.0.30001570"
-  checksum: e47230d2016edea56e002fa462a5289f697b48dcfbf703fb01aecc6c98ad4ecaf945ab23c253cb7af056c2d05f266e4e4cbebf45132100e2c9367439cb95b95b
+  version: 1.0.30001571
+  resolution: "caniuse-lite@npm:1.0.30001571"
+  checksum: 632f476e39febbfb5dc91c236981f3d518dc0cf55c42cc2bba431a6b6f4cceae3f9cd74d26312f30e9de65a3cc92ccf80d964ba8de061e25f37b7f0518303dad
   languageName: node
   linkType: hard
 
@@ -3489,9 +3499,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.601":
-  version: 1.4.615
-  resolution: "electron-to-chromium@npm:1.4.615"
-  checksum: 6602172761e44ca1a6c010a010efd0c42710e1e08911e76dd2d3df72ae2a563fb75b0853387273d1e45a4befd314162b2b1debcf9055513f62c6d6a8df4de73a
+  version: 1.4.616
+  resolution: "electron-to-chromium@npm:1.4.616"
+  checksum: a02416f3293d28120d5132546a6aea614ebd2d820a684f41b1c20138331922ddc672c4a59bfc4b91bb5aee1ba608f6c10cd3f69c344cd434397e7f14a4c97348
   languageName: node
   linkType: hard
 
@@ -3743,8 +3753,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-prettier@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "eslint-plugin-prettier@npm:5.1.0"
+  version: 5.1.1
+  resolution: "eslint-plugin-prettier@npm:5.1.1"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
     synckit: "npm:^0.8.5"
@@ -3758,7 +3768,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 76b9a6cc5fa8dcc0d5d8aac5e7b717c08c736d2f158ba63709d94526d3152761d36963f930f9c64a29270a107519eca24b41e82b67cc43f0291d43db4a975fd1
+  checksum: cb9fb797e3b872864d9bd4a6154cc0aeccdd9b3d7add510b2077f6d5149fb4b681abd180dacb5dafda603defb6089824a7c6f97faf1f099dba4f4e77f86c46c3
   languageName: node
   linkType: hard
 
@@ -4625,9 +4635,10 @@ __metadata:
     "@babel/node": "npm:^7.22.19"
     "@babel/plugin-syntax-bigint": "npm:^7.8.3"
     "@babel/preset-env": "npm:^7.22.20"
-    "@coinweb/contract-kit": "npm:^0.0.8"
+    "@coinweb/contract-kit": "npm:^0.0.17"
     "@coinweb/cweb-tool": "npm:1.0.11-146cf9b25d087ae7d0d9f319bf9d8682a24621c7"
-    "@coinweb/self-register": "npm:^0.0.14"
+    "@coinweb/self-register": "npm:^0.0.21"
+    "@coinweb/wallet-lib": "npm:^0.1.112-esm"
     babel-plugin-extract-text: "npm:^2.0.0"
     babel-plugin-transform-bigint-to-jsbi: "npm:^1.0.3"
     babelify: "npm:^10.0.0"
@@ -5810,11 +5821,11 @@ __metadata:
   linkType: hard
 
 "npm-run-path@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "npm-run-path@npm:5.1.0"
+  version: 5.2.0
+  resolution: "npm-run-path@npm:5.2.0"
   dependencies:
     path-key: "npm:^4.0.0"
-  checksum: ff6d77514489f47fa1c3b1311d09cd4b6d09a874cc1866260f9dea12cbaabda0436ed7f8c2ee44d147bf99a3af29307c6f63b0f83d242b0b6b0ab25dff2629e3
+  checksum: 7963c1f98e42afebe9524a08b0881477ec145aab34f6018842a315422b25ad40e015bdee709b697571e5efda2ecfa2640ee917d92674e4de1166fa3532a211b1
   languageName: node
   linkType: hard
 
