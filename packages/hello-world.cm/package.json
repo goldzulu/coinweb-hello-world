@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "yarn build:files && yarn pack:all",
-    "build:files": "yarn clean && NODE_ENV=production ./scripts/build.sh",
+    "build:files": "yarn clean && tsc && NODE_ENV=production ./scripts/build.sh",
     "start": "node src/offchain/index.js",
     "test": "echo \"Error: no test specified\"",
     "pack:all": "yarn pack:cweb && yarn pack:yarn",
@@ -17,8 +17,9 @@
     "clean": "rm -rf cweb_dist dist .calls.yaml"
   },
   "dependencies": {
-    "@coinweb/contract-kit": "^0.0.8",
-    "@coinweb/self-register": "^0.0.14"
+    "@coinweb/contract-kit": "^0.0.17",
+    "@coinweb/self-register": "^0.0.21",
+    "@coinweb/wallet-lib": "^0.1.112-esm"
   },
   "main": "dist/out/cweb_dist/offchain/index.js",
   "engines": {
