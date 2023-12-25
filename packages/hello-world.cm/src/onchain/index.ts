@@ -16,13 +16,11 @@ import {
   executeHandler,
 } from "@coinweb/contract-kit";
 import { selfRegisterHandler } from "@coinweb/self-register";
-
-/**
- *  The claim parts such as key parts are hardcoded for the hello-world example here
- */
-const EXAMPLE_KEY_FIRST_PART = "Universal first key part";
-const EXAMPLE_KEY_SECOND_PART = "More specific second key part";
-const EXAMPLE_BODY = "Hello World";
+import {
+  EXAMPLE_BODY,
+  EXAMPLE_KEY_FIRST_PART,
+  EXAMPLE_KEY_SECOND_PART,
+} from "../offchain/constants";
 
 function logic(contextTx: TxContext): NewTx[] {
   const issuer = getContractId(contextTx);

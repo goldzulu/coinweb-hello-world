@@ -5,13 +5,11 @@
 import { GqlClaimFilter, GqlIssuedClaim } from "@coinweb/wallet-lib";
 import onchainPackage from "../../package.json";
 import isDeepEqual from "./isDeepEqual";
-
-/**
- *  The claim parts such as key parts are hardcoded for the hello-world example here
- */
-const EXAMPLE_KEY_FIRST_PART = "Universal first key part";
-const EXAMPLE_KEY_SECOND_PART = "More specific second key part";
-const EXAMPLE_BODY = "Hello World";
+import {
+  EXAMPLE_BODY,
+  EXAMPLE_KEY_FIRST_PART,
+  EXAMPLE_KEY_SECOND_PART,
+} from "./constants";
 
 /**
  * The contract id is fetched from the name of the contract module in ../out
@@ -53,7 +51,7 @@ export const correctClaim: GqlIssuedClaim = {
  * In this hello world example the fetched claim is simply checkd against the correct data.
  * This function deep-equal-compares any data with the correct claim.
  *
- * @param  claim The GqlIssuedClaim to check
+ * @param claim The GqlIssuedClaim to check
  * @returns true if the claim is correct, false otherwise
  */
 export function isClaimOk(claim: GqlIssuedClaim) {
