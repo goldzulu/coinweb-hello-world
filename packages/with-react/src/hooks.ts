@@ -31,12 +31,14 @@ export const useContractClaims = () => {
     try {
       setIsLoadingClaims(true);
 
-      claims.current = (await CwebWallet.fetch_claims(
+      const fetchedClaims = (await CwebWallet.fetch_claims(
         cwebWalletNode,
         claimFilters,
         networkToClaimFrom,
         loadAllPages
       )) as IssuedClaim[];
+
+      claims.current = fetchedClaims;
     } catch (error) {
       console.error(error);
     } finally {
