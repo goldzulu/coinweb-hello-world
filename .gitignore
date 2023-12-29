@@ -7,6 +7,12 @@ tmp
 **/.DS_Store
 **/.calls-package.yaml
 .dapp-ecosystem-lock.yaml
-.pnp.*
 .vscode/*
-.yarn/sdks/*
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
