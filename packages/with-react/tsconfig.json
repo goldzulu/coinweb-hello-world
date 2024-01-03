@@ -6,7 +6,6 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "rootDir": ".",
-    "outDir": "./dist",
     "allowJs": true,
 
     /* Bundler mode */
@@ -23,7 +22,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "vitest.setup.ts"],
   "types": ["vitest/globals"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
