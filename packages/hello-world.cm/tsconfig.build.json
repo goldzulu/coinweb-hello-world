@@ -4,5 +4,5 @@
     "declaration": true,
     "outDir": "./dist"
   },
-  "exclude": ["__tests__", "__mocks__", "**/*.test.ts", "**/*.spec.ts"]
+  "exclude": ["**/__tests__", "**/__mocks__"]
 }
