@@ -22,10 +22,10 @@
     "test": "yarn workspaces foreach -Ap run test"
   },
   "resolutions": {
-    "@coinweb/cweb-tool": "1.0.11-146cf9b25d087ae7d0d9f319bf9d8682a24621c7"
+    "@coinweb/cweb-tool": "1.0.12-60834363be11122f0d61202ea8bfe324c8c95f91"
   },
   "devDependencies": {
-    "@coinweb/cweb-tool": "1.0.11-146cf9b25d087ae7d0d9f319bf9d8682a24621c7"
+    "@coinweb/cweb-tool": "1.0.12-60834363be11122f0d61202ea8bfe324c8c95f91"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
