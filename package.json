@@ -19,13 +19,18 @@
     "call-contract:invoke": "cweb-tool call .cweb-config/calls.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
     "clean": "yarn clean:me && yarn workspaces foreach --all --p run clean",
     "clean:me": "rm -rf .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml .actions.yaml",
-    "test": "yarn workspaces foreach -Ap run test"
+    "test": "yarn workspaces foreach -Ap run test",
+    "setup-ide:vscode": "yarn add typescript eslint prettier -D && yarn dlx @yarnpkg/sdks vscode",
+    "install:with-node-modules": "yarn config set nodeLinker node-modules && yarn install"
   },
   "resolutions": {
     "@coinweb/cweb-tool": "1.0.22"
   },
   "devDependencies": {
-    "@coinweb/cweb-tool": "1.0.22"
+    "@coinweb/cweb-tool": "1.0.22",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
