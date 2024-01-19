@@ -12,7 +12,6 @@ import {
   addDefaultMethodHandler,
   addMethodHandler,
   SELF_REGISTER_HANDLER_NAME,
-  getContextTx,
   executeHandler,
 } from "@coinweb/contract-kit";
 import { selfRegisterHandler } from "@coinweb/self-register";
@@ -45,6 +44,5 @@ function logic(contextTx: TxContext): NewTx[] {
 export function cwebMain() {
   addDefaultMethodHandler(logic);
   addMethodHandler(SELF_REGISTER_HANDLER_NAME, selfRegisterHandler);
-  const contextTx = getContextTx();
-  executeHandler(contextTx);
+  executeHandler();
 }
