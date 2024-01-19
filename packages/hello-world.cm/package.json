@@ -17,8 +17,8 @@
     "clean": "rm -rf cweb_dist dist .calls.yaml"
   },
   "dependencies": {
-    "@coinweb/contract-kit": "^0.0.18",
-    "@coinweb/self-register": "^0.0.21",
+    "@coinweb/contract-kit": "^0.0.20",
+    "@coinweb/self-register": "^0.0.22",
     "@coinweb/wallet-lib": "^0.1.112-esm"
   },
   "main": "dist/out/cweb_dist/offchain/index.js",
@@ -26,18 +26,18 @@
     "cweb_interpreter": "bdd27fb269d6476f0e9f927eac603275bcab8d749b0094d5940ad01cd369b0db"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.0",
-    "@babel/core": "^7.23.0",
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.7",
     "@babel/node": "^7.22.19",
     "@babel/plugin-syntax-bigint": "^7.8.3",
-    "@babel/preset-env": "^7.22.20",
-    "@coinweb/cweb-tool": "1.0.12-60834363be11122f0d61202ea8bfe324c8c95f91",
+    "@babel/preset-env": "^7.23.8",
+    "@coinweb/cweb-tool": "1.0.22",
     "@types/jest": "^29.5.11",
-    "@types/node": "^20.10.6",
+    "@types/node": "^20.11.5",
     "babel-plugin-extract-text": "^2.0.0",
     "babel-plugin-transform-bigint-to-jsbi": "^1.0.3",
     "babelify": "^10.0.0",
-    "esbuild": "^0.19.4",
+    "esbuild": "^0.19.11",
     "jest": "^29.7.0",
     "js-yaml": "^4.1.0",
     "jsbi": "^4.3.0",
