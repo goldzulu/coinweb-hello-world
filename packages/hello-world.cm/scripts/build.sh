@@ -17,6 +17,7 @@ mkdir -p $ROOT/{cweb_dist/{on,off}chain,dist/tmp/{step{1,2,3},final}}
 
   yarn esbuild \
 	--bundle \
+  --log-level=silent \
   --format=esm \
 	dist/tmp/step1/onchain.js \
 	--outfile=dist/tmp/step2/onchain.js
@@ -29,6 +30,7 @@ mkdir -p $ROOT/{cweb_dist/{on,off}chain,dist/tmp/{step{1,2,3},final}}
 
   yarn esbuild \
 	--bundle \
+  --log-level=silent \
 	--format=esm \
 	dist/tmp/step3/onchain.js \
 	--outfile=dist/tmp/final/onchain.js
