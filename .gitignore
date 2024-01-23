@@ -19,5 +19,9 @@ tmp
 
 .aider*
 
-unsafe_wallet_mnemonic*
+unsafe_wallet_mnenonic
+unsafe_wallet_mnemonic
+
 install-state.gz
+
+*.cast
