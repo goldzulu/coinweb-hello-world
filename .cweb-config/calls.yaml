@@ -1,36 +1,7 @@
 calls:
-- 694dd7863cc00211f4a7422f276365eabef7f115d1b79ede36a43590872ef08c:
-    args:
-    - DEFAULT
-    - {}
-    auth: false
-    cweb_provided: 80000
-- c06cdf8d405136d1b012bb9382793db7a5b319a53f3ad2a5af2e6ad5f4966c31:
-    args:
-    - DEFAULT
-    - ccac6d2a38eaa848d7aba580a319a68bbe992be9f4d798a73ec5820ac893316b
-    auth: false
-    cweb_provided: 80000
-- ccac6d2a38eaa848d7aba580a319a68bbe992be9f4d798a73ec5820ac893316b:
-    args:
-    - DEFAULT
-    auth: false
-    cweb_provided: 80000
-- 73bdf32a4c07d5839a3541d8f1ad234beceedc80b81b349e99c25043692cd309:
-    args:
-    - DEFAULT
-    auth: false
-    cweb_provided: 80000
-- 143bfebed39dd08da87b20e5bb4ed54bdad6b11c5ecad72a34d3f3cf6a662208:
-    args:
-    - CREATE
-    - my awesome token
-    - buy it, it's really useful!
-    - 100000000
-    auth: true
-    cweb_provided: 100000
-- dc5f959d28d2b185184d61d187df6699065284768aa72cfd264813e9c484ee49:
-    args:
-    - POPULATE
-    auth: true
-    cweb_provided: 100000
+  - 9d0269835d86f23b59c4ae9b4a15d025f0baa86d2a0fe0b016af70402b8addd5:
+      args:
+        - DEFAULT
+        - {}
+      cweb_provided: 80000
+      auth: false
