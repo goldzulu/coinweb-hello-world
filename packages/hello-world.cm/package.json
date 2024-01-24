@@ -33,7 +33,7 @@
     "@babel/node": "^7.22.19",
     "@babel/plugin-syntax-bigint": "^7.8.3",
     "@babel/preset-env": "^7.23.8",
-    "@coinweb/cweb-tool": "1.0.24",
+    "@coinweb/cweb-tool": "1.0.26",
     "@types/node": "^20.11.5",
     "babel-plugin-extract-text": "^2.0.0",
     "babel-plugin-transform-bigint-to-jsbi": "^1.0.3",

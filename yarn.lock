@@ -1522,9 +1522,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/cweb-tool@npm:1.0.24":
-  version: 1.0.24
-  resolution: "@coinweb/cweb-tool@npm:1.0.24"
+"@coinweb/cweb-tool@npm:1.0.26":
+  version: 1.0.26
+  resolution: "@coinweb/cweb-tool@npm:1.0.26"
   dependencies:
     "@coinweb/contract-kit": "npm:^0.0.20"
     "@coinweb/cweb-vm-lib": "npm:^0.2.2"
@@ -1553,8 +1553,8 @@ __metadata:
     ws: "npm:^8.16.0"
     zen-observable-ts: "npm:^1.1.0"
   bin:
-    cweb-tool: ./bin/cweb-tool.mjs
-  checksum: 0a08928b81c55e12adfe94da1ef82f93733ea54f9b8dcdad570772285fd3d15376610bd07dfa5d342f00585f6558aa19acca3931258d1fd7ae6b88c8b81fa418
+    cweb-tool: bin/cweb-tool.mjs
+  checksum: 46be4d231e5ab3375bf8864ccb60040574771a8d6ce45e49264504b50fdf5d48ac42a0285e6fe12a4df6c94ee99d49e8262b6eb605699e04ec52713fd74029c4
   languageName: node
   linkType: hard
 
@@ -5016,7 +5016,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hello-world-cweb-dapp@workspace:."
   dependencies:
-    "@coinweb/cweb-tool": "npm:1.0.24"
+    "@coinweb/cweb-tool": "npm:1.0.26"
     eslint: "npm:^8.56.0"
     js-yaml: "npm:^4.1.0"
     prettier: "npm:^3.2.4"
@@ -5035,7 +5035,7 @@ __metadata:
     "@babel/plugin-syntax-bigint": "npm:^7.8.3"
     "@babel/preset-env": "npm:^7.23.8"
     "@coinweb/contract-kit": "npm:^0.0.20"
-    "@coinweb/cweb-tool": "npm:1.0.24"
+    "@coinweb/cweb-tool": "npm:1.0.26"
     "@coinweb/self-register": "npm:^0.0.22"
     "@coinweb/wallet-lib": "npm:^0.1.112-esm"
     "@types/node": "npm:^20.11.5"
