@@ -19,13 +19,13 @@
     "clean": "rm -rf cweb_dist dist .calls.yaml"
   },
   "dependencies": {
-    "@coinweb/contract-kit": "^0.0.20",
-    "@coinweb/self-register": "^0.0.22",
+    "@coinweb/contract-kit": "^0.0.23",
+    "@coinweb/self-register": "^0.0.25",
     "@coinweb/wallet-lib": "^0.1.112-esm"
   },
   "main": "dist/out/cweb_dist/offchain/index.js",
   "engines": {
-    "cweb_interpreter": "bdd27fb269d6476f0e9f927eac603275bcab8d749b0094d5940ad01cd369b0db"
+    "cweb_interpreter": "a59bfe9f094338753e18fe1ddf35ea3359a8a97f75c24418b1822c69770337ea"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.4",

@@ -11,8 +11,8 @@
 # We currently use a reference to the Coinweb in-house ecosystem definition file for devnet.
 includes:
     - url: >-
-          https://gitlab.com/api/v4/projects/47807501/packages/generic/contract_indexes/0.0.5/in_house_ecosystem_index.yaml
-      blake3: 69ad86532dad9c625a4dfe286b8038dedafdd7571baa0b4ca2457f9264910107
+          https://gitlab.com/api/v4/projects/47807501/packages/generic/contract_indexes/0.0.6/in_house_ecosystem_index.yaml
+      blake3: dd71f72c924435a9e8698734ba859b2b1d2f543926a64a60f9b7feb5b029123b
 
 interpreters: {}
 
