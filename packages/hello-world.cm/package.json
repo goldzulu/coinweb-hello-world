@@ -28,22 +28,22 @@
     "cweb_interpreter": "a59bfe9f094338753e18fe1ddf35ea3359a8a97f75c24418b1822c69770337ea"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.4",
-    "@babel/core": "^7.23.7",
-    "@babel/node": "^7.22.19",
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/node": "^7.23.9",
     "@babel/plugin-syntax-bigint": "^7.8.3",
-    "@babel/preset-env": "^7.23.8",
-    "@coinweb/cweb-tool": "1.0.26",
-    "@types/node": "^20.11.5",
+    "@babel/preset-env": "^7.23.9",
+    "@coinweb/cweb-tool": "1.0.28",
+    "@types/node": "^20.11.13",
     "babel-plugin-extract-text": "^2.0.0",
     "babel-plugin-transform-bigint-to-jsbi": "^1.0.3",
     "babelify": "^10.0.0",
-    "esbuild": "^0.19.11",
+    "esbuild": "^0.20.0",
     "js-yaml": "^4.1.0",
     "jsbi": "^4.3.0",
     "replace": "^1.2.2",
     "typescript": "^5.3.3",
-    "vitest": "^1.2.1",
+    "vitest": "^1.2.2",
     "write-yaml-file": "^5.0.0"
   }
 }
