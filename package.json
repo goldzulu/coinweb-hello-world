@@ -25,10 +25,10 @@
     "install:with-node-modules": "yarn config set nodeLinker node-modules && yarn install"
   },
   "resolutions": {
-    "@coinweb/cweb-tool": "1.0.28"
+    "@coinweb/cweb-tool": "1.0.29"
   },
   "devDependencies": {
-    "@coinweb/cweb-tool": "1.0.28",
+    "@coinweb/cweb-tool": "1.0.29",
     "eslint": "^8.56.0",
     "prettier": "^3.2.4",
     "typescript": "^5.3.3"
