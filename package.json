@@ -14,14 +14,14 @@
     "call-contracts": "yarn call-contracts:prepare && yarn call-contracts:invoke",
     "call-contracts:prepare": "yarn workspaces foreach --all run prepare-for-package && yarn node ./.cweb-config/create-calls.mjs",
     "call-contracts:invoke": "cweb-tool call .cweb-config/calls.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
-    "execute-actions": "echo \"*** THIS MIGHT TAKE A LONG TIME ***\"; sleep 1; cweb-tool execute-actions ./.actions.yaml ./cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
+    "execute-actions": "cweb-tool execute-actions ./.actions.yaml ./cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
     "filter-actions": "cweb-tool filter-actions --api-endpoint https://api-devnet.coinweb.io/wallet -n DEVNET_L1A ./.unfiltered-actions.yaml .actions.yaml",
     "gather-actions": "cweb-tool gather-actions .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml",
     "publish-actions": "cweb-tool publish .cweb-config/dapp-ecosystem.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
     "clean": "yarn clean:me && yarn workspaces foreach --all --p run clean",
     "clean:me": "rm -rf .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml .actions.yaml",
     "test": "yarn workspaces foreach -Ap run test",
-    "setup-ide:vscode": "yarn add typescript eslint prettier -D && yarn dlx @yarnpkg/sdks vscode",
+    "setup-ide:vscode": "yarn dlx @yarnpkg/sdks vscode",
     "install:with-node-modules": "yarn config set nodeLinker node-modules && yarn install"
   },
   "resolutions": {
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@coinweb/cweb-tool": "1.0.29",
     "eslint": "^8.56.0",
-    "prettier": "^3.2.4",
+    "prettier": "^3.2.5",
     "typescript": "^5.3.3"
   },
   "dependencies": {

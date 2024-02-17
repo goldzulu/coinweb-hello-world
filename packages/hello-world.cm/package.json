@@ -19,7 +19,7 @@
     "clean": "rm -rf cweb_dist dist .calls.yaml"
   },
   "dependencies": {
-    "@coinweb/contract-kit": "^0.0.23",
+    "@coinweb/contract-kit": "^0.0.24",
     "@coinweb/self-register": "^0.0.25",
     "@coinweb/wallet-lib": "^0.1.112-esm"
   },
@@ -33,8 +33,8 @@
     "@babel/node": "^7.23.9",
     "@babel/plugin-syntax-bigint": "^7.8.3",
     "@babel/preset-env": "^7.23.9",
-    "@coinweb/cweb-tool": "1.0.28",
-    "@types/node": "^20.11.13",
+    "@coinweb/cweb-tool": "1.0.29",
+    "@types/node": "^20.11.19",
     "babel-plugin-extract-text": "^2.0.0",
     "babel-plugin-transform-bigint-to-jsbi": "^1.0.3",
     "babelify": "^10.0.0",
@@ -43,7 +43,7 @@
     "jsbi": "^4.3.0",
     "replace": "^1.2.2",
     "typescript": "^5.3.3",
-    "vitest": "^1.2.2",
+    "vitest": "^1.3.0",
     "write-yaml-file": "^5.0.0"
   }
 }
