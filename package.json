@@ -18,7 +18,7 @@
     "filter-actions": "cweb-tool filter-actions --api-endpoint https://api-devnet.coinweb.io/wallet -n DEVNET_L1A ./.unfiltered-actions.yaml .actions.yaml",
     "gather-actions": "cweb-tool gather-actions .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml",
     "publish-actions": "cweb-tool publish .cweb-config/dapp-ecosystem.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
-    "clean": "yarn clean:me && yarn workspaces foreach --all --p run clean",
+    "clean": "yarn clean:me && yarn workspaces foreach -Ap run clean",
     "clean:me": "rm -rf .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml .actions.yaml",
     "test": "yarn workspaces foreach -Ap run test",
     "setup-ide:vscode": "yarn dlx @yarnpkg/sdks vscode",
