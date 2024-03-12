@@ -1,6 +1,6 @@
 {
   "name": "hello-world-cweb-dapp",
-  "packageManager": "yarn@4.1.0",
+  "packageManager": "yarn@4.1.1",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -13,11 +13,11 @@
     "deploy-contracts": "yarn publish-actions",
     "call-contracts": "yarn call-contracts:prepare && yarn call-contracts:invoke",
     "call-contracts:prepare": "yarn workspaces foreach --all run prepare-for-package && yarn node ./.cweb-config/create-calls.mjs",
-    "call-contracts:invoke": "cweb-tool call .cweb-config/calls.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
-    "execute-actions": "cweb-tool execute-actions ./.actions.yaml ./cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
-    "filter-actions": "cweb-tool filter-actions --api-endpoint https://api-devnet.coinweb.io/wallet -n DEVNET_L1A ./.unfiltered-actions.yaml .actions.yaml",
+    "call-contracts:invoke": "cweb-tool call .cweb-config/calls.yaml .cweb-config/mnemonic.txt DEVNET_L1A http://localhost:5100/wallet",
+    "execute-actions": "cweb-tool execute-actions ./.actions.yaml ./cweb-config/mnemonic.txt DEVNET_L1A http://localhost:5100/wallet",
+    "filter-actions": "cweb-tool filter-actions --api-endpoint http://localhost:5100/wallet -n DEVNET_L1A ./.unfiltered-actions.yaml .actions.yaml",
     "gather-actions": "cweb-tool gather-actions .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml",
-    "publish-actions": "cweb-tool publish .cweb-config/dapp-ecosystem.yaml .cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
+    "publish-actions": "cweb-tool publish .cweb-config/dapp-ecosystem.yaml .cweb-config/mnemonic.txt DEVNET_L1A http://localhost:5100/wallet",
     "clean": "yarn clean:me && yarn workspaces foreach -Ap run clean",
     "clean:me": "rm -rf .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml .actions.yaml",
     "test": "yarn workspaces foreach -Ap run test",
@@ -25,7 +25,8 @@
     "install:with-node-modules": "yarn config set nodeLinker node-modules && yarn install"
   },
   "resolutions": {
-    "@coinweb/cweb-tool": "1.0.31"
+    "@coinweb/cweb-tool": "1.0.31",
+    "@coinweb/wallet-lib": "^0.1.112-esm"
   },
   "devDependencies": {
     "@coinweb/cweb-tool": "1.0.31",
