@@ -21,7 +21,16 @@ tmp
 
 unsafe_wallet_mnenonic
 unsafe_wallet_mnemonic
+.unfiltered-actions.yaml
 
 install-state.gz
 
 *.cast
+
+.devcontainer/gid
+.devcontainer/uid
+
+.env.yarn.devnet
+!.env.yarn
+
+.cweb_tool/calls.yaml
