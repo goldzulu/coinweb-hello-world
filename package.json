@@ -26,14 +26,14 @@
     "preinstall": "./scripts/preinstall.env.sh"
   },
   "resolutions": {
-    "@coinweb/cweb-tool": "1.0.31",
+    "@coinweb/cweb-tool": "1.0.32",
     "@coinweb/wallet-lib": "^0.1.112-esm"
   },
   "devDependencies": {
-    "@coinweb/cweb-tool": "1.0.31",
+    "@coinweb/cweb-tool": "1.0.32",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
