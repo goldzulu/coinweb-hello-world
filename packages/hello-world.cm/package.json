@@ -16,7 +16,8 @@
     "call-contract": "yarn call-contract:prepare && yarn call-contract:invoke",
     "call-contract:prepare": "./scripts/make-single-call.sh",
     "call-contract:invoke": "cweb-tool call deploy/calls.yaml ../../.cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
-    "clean": "rm -rf cweb_dist dist .calls.yaml"
+    "clean": "rm -rf cweb_dist dist .calls.yaml",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@coinweb/contract-kit": "^0.0.27",
@@ -43,7 +44,7 @@
     "jsbi": "^4.3.0",
     "replace": "^1.2.2",
     "typescript": "^5.4.2",
-    "vitest": "^1.3.1",
+    "vitest": "^1.4.0",
     "write-yaml-file": "^5.0.0"
   }
 }
