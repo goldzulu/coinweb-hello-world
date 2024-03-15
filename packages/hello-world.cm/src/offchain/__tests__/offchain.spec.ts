@@ -1,4 +1,4 @@
-import { GqlIssuedClaim } from "@coinweb/wallet-lib";
+import type { GqlIssuedClaim } from "@coinweb/wallet-lib";
 import { correctClaim, isClaimOk } from "..";
 
 describe("Offchain Tests", () => {
@@ -17,8 +17,7 @@ describe("Offchain Tests", () => {
           second_part: "incorrect_second_part",
         },
         body: "incorrect_body",
-        fees_stored:
-          "0x0000000000000000000000000000000000000000000000000000000000000000",
+        fees_stored: "0x0000000000000000000000000000000000000000000000000000000000000000",
       },
     };
 

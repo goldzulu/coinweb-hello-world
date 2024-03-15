@@ -1,6 +1,5 @@
+import type { NewTx, Context, ContractHandlers } from "@coinweb/contract-kit";
 import {
-  TxContext,
-  NewTx,
   getContractId,
   continueTx,
   passCwebFrom,
@@ -15,14 +14,11 @@ import {
   executeHandler,
 } from "@coinweb/contract-kit";
 import { selfRegisterHandler } from "@coinweb/self-register";
-import {
-  EXAMPLE_BODY,
-  EXAMPLE_KEY_FIRST_PART,
-  EXAMPLE_KEY_SECOND_PART,
-} from "../offchain/constants";
+import { EXAMPLE_BODY, EXAMPLE_KEY_FIRST_PART, EXAMPLE_KEY_SECOND_PART } from "../offchain/constants";
 
-function logic(contextTx: TxContext): NewTx[] {
-  const issuer = getContractId(contextTx);
+function logic(context: Context): NewTx[] {
+  const { tx } = context;
+  const issuer = getContractId(tx);
 
   return [
     continueTx([
@@ -42,7 +38,8 @@ function logic(contextTx: TxContext): NewTx[] {
 }
 
 export function cwebMain() {
-  addDefaultMethodHandler(logic);
-  addMethodHandler(SELF_REGISTER_HANDLER_NAME, selfRegisterHandler);
-  executeHandler();
+  const module: ContractHandlers = { handlers: {} };
+  addDefaultMethodHandler(module, logic);
+  addMethodHandler(module, SELF_REGISTER_HANDLER_NAME, selfRegisterHandler);
+  executeHandler(module);
 }
