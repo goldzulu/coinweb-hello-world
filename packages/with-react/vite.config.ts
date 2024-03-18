@@ -10,6 +10,9 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  define: {
+    __API_URL__: JSON.stringify(process.env.API_ENDPOINT_DEVNET),
+  },
   test: {
     globals: true,
     environment: 'jsdom',

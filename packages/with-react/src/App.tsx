@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import coinwebLogo from './assets/coinweb-logo.svg';
 
-import { IssuedClaim, useContractClaims } from './hooks';
+import { exampleApi } from 'hello-world.cm';
+import { useContractClaims } from './hooks';
 
 interface FormState {
   keyFirstPart: number | string;
@@ -14,7 +15,7 @@ interface FormState {
 function App() {
   const [claimForm, setClaimForm] = useState<FormState>();
 
-  const { fetchClaims, validateClaim, claim, contractId, isValid, isLoading } = useContractClaims();
+  const { fetchClaims, validateClaim, claim, isValid, isLoading } = useContractClaims();
 
   useEffect(() => {
     fetchClaims();
@@ -42,7 +43,7 @@ function App() {
   const onSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     if (claim) {
-      const claimClone = JSON.parse(JSON.stringify(claim)) as IssuedClaim;
+      const claimClone = JSON.parse(JSON.stringify(claim)) as exampleApi.IssuedClaim;
       claimClone.content.key.first_part = claimForm?.keyFirstPart ?? '';
       claimClone.content.key.second_part = claimForm?.keySecondPart ?? '';
       claimClone.content.body = claimForm?.claimBody;
@@ -64,7 +65,7 @@ function App() {
       <main>
         <h1>Hello World</h1>
         <h2>Contract ID</h2>
-        <p>{contractId}</p>
+        <p>{(claim?.issuer as { FromSmartContract: string })?.FromSmartContract}</p>
 
         <br />
 

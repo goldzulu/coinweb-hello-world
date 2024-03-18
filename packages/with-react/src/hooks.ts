@@ -1,44 +1,25 @@
 import { useRef, useState } from 'react';
-import * as CwebWallet from '@coinweb/wallet-lib';
-import { NetworkName } from '@coinweb/wallet-lib/enums';
-import * as helloWorldCm from 'hello-world.cm';
-
-const DEV_COINWEB_ENDPOINT = process.env.API_ENDPOINT_DEVNET;
-
-const cwebWalletNode = CwebWallet.connect_to_node(DEV_COINWEB_ENDPOINT as string);
-
-export type IssuedClaim = CwebWallet.GqlIssuedClaim & {
-  content: {
-    key: {
-      first_part: number | string;
-      second_part: number | string;
-    };
-  };
-};
+import { exampleApi } from 'hello-world.cm';
 
 export const useContractClaims = () => {
-  const claims = useRef<IssuedClaim[]>();
+  const claims = useRef<exampleApi.IssuedClaim[]>();
   const [isValid, setIsValid] = useState<boolean>();
   const [isLoadingClaims, setIsLoadingClaims] = useState(false);
 
   const fetchClaims = async () => {
-    const { claimFilter: helloWorldClaimFilter } = helloWorldCm;
-
-    const claimFilters = [helloWorldClaimFilter];
-    const networkToClaimFrom = NetworkName.DEVNET_L1A;
-    const loadAllPages = true;
-
     try {
       setIsLoadingClaims(true);
 
-      const fetchedClaims = (await CwebWallet.fetch_claims(
-        cwebWalletNode,
-        claimFilters,
-        networkToClaimFrom,
-        loadAllPages
-      )) as IssuedClaim[];
+      const fetchedClaims = await exampleApi.fetchClaims();
 
-      claims.current = fetchedClaims;
+      if (fetchedClaims.status === 'success') {
+        claims.current = fetchedClaims.result as exampleApi.IssuedClaim[];
+      }
+
+      if (fetchedClaims.status === 'error') {
+        const { result: error } = fetchedClaims;
+        throw error as Error;
+      }
     } catch (error) {
       console.error(error);
     } finally {
@@ -46,8 +27,8 @@ export const useContractClaims = () => {
     }
   };
 
-  const validateClaim = (claim: CwebWallet.GqlIssuedClaim): void => {
-    const isClaimValid = helloWorldCm.isClaimOk(claim);
+  const validateClaim = (claim: exampleApi.IssuedClaim): void => {
+    const isClaimValid = exampleApi.validateClaim(claim);
     setIsValid(isClaimValid);
   };
 
@@ -55,7 +36,6 @@ export const useContractClaims = () => {
     fetchClaims,
     validateClaim,
     claim: claims.current?.[0],
-    contractId: helloWorldCm.contractId,
     isValid,
     isLoading: isLoadingClaims,
   };

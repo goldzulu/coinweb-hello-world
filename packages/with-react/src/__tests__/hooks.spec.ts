@@ -1,18 +1,13 @@
 import { vi, Mock } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
-import * as CwebWallet from '@coinweb/wallet-lib';
 import * as helloWorldCm from 'hello-world.cm';
 import { useContractClaims } from '../hooks';
 
-vi.mock('@coinweb/wallet-lib', () => ({
-  connect_to_node: vi.fn(),
-  fetch_claims: vi.fn(),
-  GqlIssuedClaim: class {},
-}));
 vi.mock('hello-world.cm', () => ({
-  isClaimOk: vi.fn(),
-  contractId: 'test-contract-id',
-  claimFilter: {},
+  exampleApi: {
+    fetchClaims: vi.fn(),
+    validateClaim: vi.fn(),
+  },
 }));
 
 describe('useContractClaims hook', () => {
@@ -34,6 +29,7 @@ describe('useContractClaims hook', () => {
   it('should set isLoading to true when fetchClaims is called', async () => {
     const { result } = renderHook(() => useContractClaims());
 
+    // do not await to test isLoading
     act(() => {
       result.current.fetchClaims();
     });
@@ -46,7 +42,7 @@ describe('useContractClaims hook', () => {
   it('should fetch claims and update state accordingly', async () => {
     const mockClaims = [{ content: { key: { first_part: 'test', second_part: 'claim' } } }];
 
-    (CwebWallet.fetch_claims as Mock).mockResolvedValue(mockClaims);
+    (helloWorldCm.exampleApi.fetchClaims as Mock).mockResolvedValue({ result: mockClaims, status: 'success' });
 
     const { result, rerender } = renderHook(() => useContractClaims());
 
@@ -56,7 +52,7 @@ describe('useContractClaims hook', () => {
 
     rerender();
 
-    expect(CwebWallet.fetch_claims).toHaveBeenCalled();
+    expect(helloWorldCm.exampleApi.fetchClaims).toHaveBeenCalledTimes(1);
     expect(result.current.claim).toEqual(mockClaims[0]);
   });
 
@@ -65,7 +61,8 @@ describe('useContractClaims hook', () => {
       issuer: { FromContractId: 'test-contract-id' },
       content: { key: { first_part: 'test', second_part: 'claim' }, body: 'test', fees_stored: '0' },
     };
-    (helloWorldCm.isClaimOk as Mock).mockReturnValue(true);
+
+    (helloWorldCm.exampleApi.validateClaim as Mock).mockReturnValue(true);
 
     const { result } = renderHook(() => useContractClaims());
 
@@ -73,7 +70,7 @@ describe('useContractClaims hook', () => {
       result.current.validateClaim(mockClaim);
     });
 
-    expect(helloWorldCm.isClaimOk).toHaveBeenCalledWith(mockClaim);
+    expect(helloWorldCm.exampleApi.validateClaim).toHaveBeenCalledWith(mockClaim);
     expect(result.current.isValid).toBe(true);
   });
 });

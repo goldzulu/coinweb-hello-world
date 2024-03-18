@@ -40,7 +40,6 @@ describe('App component', () => {
       fetchClaims: fetchClaimsMock,
       validateClaim: validateClaimMock,
       claim: mockClaim,
-      contractId: '123',
       isValid: undefined,
       isLoading: false,
     });
@@ -79,7 +78,6 @@ describe('App component', () => {
       fetchClaims: fetchClaimsMock,
       validateClaim: validateClaimMock,
       claim: undefined,
-      contractId: '123',
       isValid: undefined,
       isLoading: true,
     });
@@ -100,7 +98,6 @@ describe('App component', () => {
       fetchClaims: fetchClaimsMock,
       validateClaim: validateClaimMock,
       claim: mockClaim,
-      contractId: '123',
       isValid: true,
       isLoading: false,
     });
