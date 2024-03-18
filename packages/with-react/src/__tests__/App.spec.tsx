@@ -3,32 +3,14 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import App from '../App';
 import * as hooks from '../hooks';
 
-vi.mock('@coinweb/wallet-lib', () => ({
-  connect_to_node: vi.fn(),
-  fetch_claims: vi.fn(),
-}));
-vi.mock('hello-world.cm', () => ({
-  isClaimOk: vi.fn(),
-  contractId: 'test-contract-id',
-  claimFilter: {},
-}));
-
 describe('App component', () => {
   let fetchClaimsMock = vi.fn();
   let validateClaimMock = vi.fn();
 
-  const mockClaim = {
-    issuer: {
-      FromSmartContract: '123',
-    },
-    content: {
-      key: {
-        first_part: 'test',
-        second_part: 'claim',
-      },
-      body: 'Claim body content',
-      fees_stored: '0x0',
-    },
+  const mockGreeting = {
+    firstKey: 'test',
+    secondKey: 'claim',
+    body: 'Claim body content',
   };
 
   beforeEach(() => {
@@ -36,10 +18,11 @@ describe('App component', () => {
 
     fetchClaimsMock = vi.fn();
     validateClaimMock = vi.fn();
-    vi.spyOn(hooks, 'useContractClaims').mockReturnValue({
-      fetchClaims: fetchClaimsMock,
-      validateClaim: validateClaimMock,
-      claim: mockClaim,
+
+    vi.spyOn(hooks, 'useGreeting').mockReturnValue({
+      fetch: fetchClaimsMock,
+      validate: validateClaimMock,
+      greeting: mockGreeting,
       contractId: '123',
       isValid: undefined,
       isLoading: false,
@@ -75,11 +58,11 @@ describe('App component', () => {
   });
 
   it('renders App without the validation form', async () => {
-    vi.spyOn(hooks, 'useContractClaims').mockReturnValue({
-      fetchClaims: fetchClaimsMock,
-      validateClaim: validateClaimMock,
-      claim: undefined,
-      contractId: '123',
+    vi.spyOn(hooks, 'useGreeting').mockReturnValue({
+      fetch: fetchClaimsMock,
+      validate: validateClaimMock,
+      greeting: undefined,
+      contractId: '',
       isValid: undefined,
       isLoading: true,
     });
@@ -96,11 +79,11 @@ describe('App component', () => {
   });
 
   it('form is visible and user clicks on the button, then the Valid claim message is displayed', async () => {
-    vi.spyOn(hooks, 'useContractClaims').mockReturnValue({
-      fetchClaims: fetchClaimsMock,
-      validateClaim: validateClaimMock,
-      claim: mockClaim,
-      contractId: '123',
+    vi.spyOn(hooks, 'useGreeting').mockReturnValue({
+      fetch: fetchClaimsMock,
+      validate: validateClaimMock,
+      greeting: mockGreeting,
+      contractId: '',
       isValid: true,
       isLoading: false,
     });

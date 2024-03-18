@@ -1,59 +1,55 @@
-// This is the offchain part of the smart contract.
-// The code here is the one that will be authenticated.
-// This is the code that is also used for the front ends etc.
+import * as api from "./api";
+import * as constants from "./constants";
+import type { IssuedClaim } from "./api";
 
-import { GqlClaimFilter, GqlIssuedClaim } from "@coinweb/wallet-lib";
-import onchainPackage from "../../package.json";
-import isDeepEqual from "./isDeepEqual";
-import {
-  EXAMPLE_BODY,
-  EXAMPLE_KEY_FIRST_PART,
-  EXAMPLE_KEY_SECOND_PART,
-} from "./constants";
+export type { IssuedClaim };
 
-/**
- * The contract id is fetched from the name of the contract module in ../out
- * The contract module's name is always `cweb_<<contract id>>` which is subtracted
- * to construct a hex version of the contract id.
- */
-export const contractId = `0x${onchainPackage.name.substring(5)}`;
-
-/**
- * The claim filter is used to fetch the claim that is been checked.
- * Issuer and the first key are used to identify the claim.
- */
-export const claimFilter: GqlClaimFilter = {
-  issuer: { FromSmartContract: contractId },
-  keyFirstPart: EXAMPLE_KEY_FIRST_PART,
-  keySecondPart: null,
-  startsAtKeySecondPart: null,
-  endsAtKeySecondPart: null,
+export type Greeting = {
+  body: string;
+  firstKey: string | number;
+  secondKey: string | number;
 };
 
-/**
- * The expected claim. This is used within the testing to check that the claim is equal to what it has to be.
- * The correct claim is **hardcoded** for this example.
- */
-export const correctClaim: GqlIssuedClaim = {
-  issuer: claimFilter.issuer,
-  content: {
-    key: {
-      first_part: EXAMPLE_KEY_FIRST_PART,
-      second_part: EXAMPLE_KEY_SECOND_PART,
+export const validateGreeting = (claim: Greeting): Promise<boolean> => {
+  const claimToValidate = {
+    issuer: {
+      FromSmartContract: constants.contractId,
     },
-    body: EXAMPLE_BODY,
-    fees_stored:
-      "0x0000000000000000000000000000000000000000000000000000000000000000",
-  },
+    content: {
+      body: claim.body,
+      key: {
+        first_part: claim.firstKey,
+        second_part: claim.secondKey,
+      },
+      fees_stored: constants.correctClaim.content.fees_stored,
+    },
+  };
+
+  return api.validateClaim(claimToValidate);
 };
 
-/**
- * In this hello world example the fetched claim is simply checkd against the correct data.
- * This function deep-equal-compares any data with the correct claim.
- *
- * @param claim The GqlIssuedClaim to check
- * @returns true if the claim is correct, false otherwise
- */
-export function isClaimOk(claim: GqlIssuedClaim) {
-  return isDeepEqual(claim, correctClaim);
-}
+export const getContractId = async (): Promise<string> => {
+  return constants.contractId;
+};
+
+export const getGreeting = async (): Promise<Greeting> => {
+  return api.fetchClaims().then((claimsResponse) => {
+    if (claimsResponse.status === "error") {
+      throw new Error("Failed to fetch claims from the network.");
+    }
+
+    if (claimsResponse.status === "success") {
+      const [helloWorldClaim] = claimsResponse.result as IssuedClaim[];
+
+      if (helloWorldClaim?.content?.body && helloWorldClaim?.content?.key) {
+        return {
+          body: helloWorldClaim.content.body as string,
+          firstKey: helloWorldClaim.content.key.first_part,
+          secondKey: helloWorldClaim.content.key.second_part,
+        };
+      }
+
+      throw new Error("Claim not found.");
+    }
+  });
+};

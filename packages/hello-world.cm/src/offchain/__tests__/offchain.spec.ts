@@ -1,26 +1,26 @@
-import type { GqlIssuedClaim } from "@coinweb/wallet-lib";
-import { correctClaim, isClaimOk } from "..";
+import { Greeting, validateGreeting } from "..";
+import { correctClaim } from "../constants";
 
 describe("Offchain Tests", () => {
-  test("isClaimOk returns true for correct claim", () => {
-    expect(isClaimOk(correctClaim)).toBe(true);
+  test("isClaimOk returns true for correct claim", async () => {
+    expect(
+      await validateGreeting({
+        body: correctClaim?.content?.body,
+        // @ts-expect-error
+        firstKey: correctClaim?.content?.key?.first_part as string,
+        // @ts-expect-error
+        secondKey: correctClaim?.content?.key?.second_part as string,
+      } as Greeting)
+    ).toBe(true);
   });
 
-  test("isClaimOk returns false for incorrect claim", () => {
-    const incorrectClaim: GqlIssuedClaim = {
-      issuer: {
-        FromSmartContract: "0xincorrectcontractid",
-      },
-      content: {
-        key: {
-          first_part: "incorrect_first_part",
-          second_part: "incorrect_second_part",
-        },
-        body: "incorrect_body",
-        fees_stored: "0x0000000000000000000000000000000000000000000000000000000000000000",
-      },
+  test("isClaimOk returns false for incorrect claim", async () => {
+    const incorrectClaim: Greeting = {
+      firstKey: "incorrect_first_part",
+      secondKey: "incorrect_second_part",
+      body: "incorrect_body",
     };
 
-    expect(isClaimOk(incorrectClaim)).toBe(false);
+    expect(await validateGreeting(incorrectClaim)).toBe(false);
   });
 });

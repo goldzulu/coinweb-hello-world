@@ -1,62 +1,38 @@
 import { useRef, useState } from 'react';
-import * as CwebWallet from '@coinweb/wallet-lib';
-import { NetworkName } from '@coinweb/wallet-lib/enums';
-import * as helloWorldCm from 'hello-world.cm';
+import * as api from 'hello-world.cm';
+import type { Greeting } from 'hello-world.cm';
 
-const DEV_COINWEB_ENDPOINT = process.env.API_ENDPOINT_DEVNET;
-
-const cwebWalletNode = CwebWallet.connect_to_node(DEV_COINWEB_ENDPOINT as string);
-
-export type IssuedClaim = CwebWallet.GqlIssuedClaim & {
-  content: {
-    key: {
-      first_part: number | string;
-      second_part: number | string;
-    };
-  };
-};
-
-export const useContractClaims = () => {
-  const claims = useRef<IssuedClaim[]>();
+export const useGreeting = () => {
+  const greeting = useRef<Greeting>();
+  const contractId = useRef<string>('');
   const [isValid, setIsValid] = useState<boolean>();
-  const [isLoadingClaims, setIsLoadingClaims] = useState(false);
+  const [isLoadingGreeting, setIsLoadingGreeting] = useState(false);
 
-  const fetchClaims = async () => {
-    const { claimFilter: helloWorldClaimFilter } = helloWorldCm;
-
-    const claimFilters = [helloWorldClaimFilter];
-    const networkToClaimFrom = NetworkName.DEVNET_L1A;
-    const loadAllPages = true;
-
+  const fetch = async () => {
     try {
-      setIsLoadingClaims(true);
-
-      const fetchedClaims = (await CwebWallet.fetch_claims(
-        cwebWalletNode,
-        claimFilters,
-        networkToClaimFrom,
-        loadAllPages
-      )) as IssuedClaim[];
-
-      claims.current = fetchedClaims;
+      setIsLoadingGreeting(true);
+      await Promise.all([api.getContractId(), api.getGreeting()]).then(([contractIdentity, greetingClaim]) => {
+        contractId.current = contractIdentity;
+        greeting.current = greetingClaim;
+      });
     } catch (error) {
       console.error(error);
     } finally {
-      setIsLoadingClaims(false);
+      setIsLoadingGreeting(false);
     }
   };
 
-  const validateClaim = (claim: CwebWallet.GqlIssuedClaim): void => {
-    const isClaimValid = helloWorldCm.isClaimOk(claim);
+  const validate = async (claim: Greeting): Promise<void> => {
+    const isClaimValid = await api.validateGreeting(claim);
     setIsValid(isClaimValid);
   };
 
   return {
-    fetchClaims,
-    validateClaim,
-    claim: claims.current?.[0],
-    contractId: helloWorldCm.contractId,
+    fetch,
+    validate,
+    greeting: greeting.current,
+    contractId: contractId.current,
     isValid,
-    isLoading: isLoadingClaims,
+    isLoading: isLoadingGreeting,
   };
 };
