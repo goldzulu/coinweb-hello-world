@@ -3,37 +3,39 @@ import React, { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import coinwebLogo from './assets/coinweb-logo.svg';
 
-import { exampleApi } from 'hello-world.cm';
-import { useContractClaims } from './hooks';
+import { useGreeting } from './hooks';
+import type { Greeting } from 'hello-world.cm';
 
 interface FormState {
-  keyFirstPart: number | string;
-  keySecondPart: number | string;
-  claimBody: string | number | any;
+  firstKey: number | string;
+  secondKey: number | string;
+  body: string;
 }
 
 function App() {
-  const [claimForm, setClaimForm] = useState<FormState>();
+  const [form, setForm] = useState<FormState>();
 
-  const { fetchClaims, validateClaim, claim, isValid, isLoading } = useContractClaims();
+  const { fetch, validate, greeting, contractId, isValid, isLoading } = useGreeting();
+
+  console.log('greeting', greeting, contractId);
 
   useEffect(() => {
-    fetchClaims();
+    fetch();
   }, []);
 
   useEffect(() => {
-    if (claim) {
-      setClaimForm({
-        keyFirstPart: claim.content?.key?.first_part,
-        keySecondPart: claim.content?.key?.second_part,
-        claimBody: claim.content?.body,
+    if (greeting) {
+      setForm({
+        firstKey: greeting?.firstKey,
+        secondKey: greeting?.secondKey,
+        body: greeting?.body,
       });
     }
-  }, [claim]);
+  }, [greeting]);
 
   const onClaimFieldChangeHandler = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setClaimForm((state) => {
+    setForm((state) => {
       if (state) {
         return { ...state, [field]: Number(value) || value };
       }
@@ -42,12 +44,12 @@ function App() {
 
   const onSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    if (claim) {
-      const claimClone = JSON.parse(JSON.stringify(claim)) as exampleApi.IssuedClaim;
-      claimClone.content.key.first_part = claimForm?.keyFirstPart ?? '';
-      claimClone.content.key.second_part = claimForm?.keySecondPart ?? '';
-      claimClone.content.body = claimForm?.claimBody;
-      validateClaim(claimClone);
+    if (greeting) {
+      const claimClone = JSON.parse(JSON.stringify(greeting)) as Greeting;
+      claimClone.firstKey = form?.firstKey ?? '';
+      claimClone.secondKey = form?.secondKey ?? '';
+      claimClone.body = form?.body ?? '';
+      validate(claimClone);
     }
   };
 
@@ -65,26 +67,26 @@ function App() {
       <main>
         <h1>Hello World</h1>
         <h2>Contract ID</h2>
-        <p>{(claim?.issuer as { FromSmartContract: string })?.FromSmartContract}</p>
+        <p>{contractId}</p>
 
         <br />
 
         {isLoading ? (
           <div className="loader" />
         ) : (
-          claimForm && (
+          form && (
             <div className="claim">
               <form className="claim-form" onSubmit={onSubmitHandler}>
                 <div className="input-wrapper">
-                  <input value={claimForm.keyFirstPart} onChange={onClaimFieldChangeHandler('keyFirstPart')} />
+                  <input value={form.firstKey} onChange={onClaimFieldChangeHandler('keyFirstPart')} />
                   <span className="input-label">First key</span>
                 </div>
                 <div className="input-wrapper">
-                  <input value={claimForm.keySecondPart} onChange={onClaimFieldChangeHandler('keySecondPart')} />
+                  <input value={form.secondKey} onChange={onClaimFieldChangeHandler('keySecondPart')} />
                   <span className="input-label">Second key</span>
                 </div>
                 <div className="input-wrapper">
-                  <input value={claimForm.claimBody} onChange={onClaimFieldChangeHandler('claimBody')} />
+                  <input value={form.body} onChange={onClaimFieldChangeHandler('claimBody')} />
                   <span className="input-label">Claim body</span>
                 </div>
 

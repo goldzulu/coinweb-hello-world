@@ -1,42 +1,38 @@
 import { useRef, useState } from 'react';
-import { exampleApi } from 'hello-world.cm';
+import * as api from 'hello-world.cm';
+import type { Greeting } from 'hello-world.cm';
 
-export const useContractClaims = () => {
-  const claims = useRef<exampleApi.IssuedClaim[]>();
+export const useGreeting = () => {
+  const greeting = useRef<Greeting>();
+  const contractId = useRef<string>('');
   const [isValid, setIsValid] = useState<boolean>();
-  const [isLoadingClaims, setIsLoadingClaims] = useState(false);
+  const [isLoadingGreeting, setIsLoadingGreeting] = useState(false);
 
-  const fetchClaims = async () => {
+  const fetch = async () => {
     try {
-      setIsLoadingClaims(true);
-
-      const fetchedClaims = await exampleApi.fetchClaims();
-
-      if (fetchedClaims.status === 'success') {
-        claims.current = fetchedClaims.result as exampleApi.IssuedClaim[];
-      }
-
-      if (fetchedClaims.status === 'error') {
-        const { result: error } = fetchedClaims;
-        throw error as Error;
-      }
+      setIsLoadingGreeting(true);
+      await Promise.all([api.getContractId(), api.getGreeting()]).then(([contractIdentity, greetingClaim]) => {
+        contractId.current = contractIdentity;
+        greeting.current = greetingClaim;
+      });
     } catch (error) {
       console.error(error);
     } finally {
-      setIsLoadingClaims(false);
+      setIsLoadingGreeting(false);
     }
   };
 
-  const validateClaim = (claim: exampleApi.IssuedClaim): void => {
-    const isClaimValid = exampleApi.validateClaim(claim);
+  const validate = async (claim: Greeting): Promise<void> => {
+    const isClaimValid = await api.validateGreeting(claim);
     setIsValid(isClaimValid);
   };
 
   return {
-    fetchClaims,
-    validateClaim,
-    claim: claims.current?.[0],
+    fetch,
+    validate,
+    greeting: greeting.current,
+    contractId: contractId.current,
     isValid,
-    isLoading: isLoadingClaims,
+    isLoading: isLoadingGreeting,
   };
 };

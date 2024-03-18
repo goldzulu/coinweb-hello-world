@@ -56,6 +56,6 @@ export const fetchClaims = async (): Promise<ClaimsResponse> => {
  * @param claim The GqlIssuedClaim to check
  * @returns true if the claim is correct, false otherwise
  */
-export const validateClaim = (claim: CwebWallet.GqlIssuedClaim): boolean => {
+export const validateClaim = async (claim: IssuedClaim): Promise<boolean> => {
   return isEqual(claim, correctClaim);
 };

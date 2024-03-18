@@ -33,4 +33,4 @@ install-state.gz
 .env.yarn.devnet
 !.env.yarn
 
-.cweb_tool/calls.yaml
+.cweb-config/calls.yaml
