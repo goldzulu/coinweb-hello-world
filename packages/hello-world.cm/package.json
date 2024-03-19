@@ -20,8 +20,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@coinweb/contract-kit": "^0.0.27",
-    "@coinweb/self-register": "^0.0.27",
+    "@coinweb/contract-kit": "^0.0.28",
+    "@coinweb/self-register": "^0.0.28",
     "@coinweb/wallet-lib": "^0.1.112-esm"
   },
   "main": "dist/out/cweb_dist/offchain/index.js",

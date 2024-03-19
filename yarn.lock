@@ -1522,6 +1522,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@coinweb/contract-kit@npm:^0.0.28":
+  version: 0.0.28
+  resolution: "@coinweb/contract-kit@npm:0.0.28"
+  dependencies:
+    lodash.isequal: "npm:^4.5.0"
+  checksum: 10c0/a4b088152c563f0326c4a22730ed32d794dc3ea0d1d7f7690e9662b328ef6dd764599fde30936e25800ab09f358a9fd63f3ee128bb67f37cb06fcc8ee5a77914
+  languageName: node
+  linkType: hard
+
 "@coinweb/cweb-tool@npm:1.0.32":
   version: 1.0.32
   resolution: "@coinweb/cweb-tool@npm:1.0.32"
@@ -1567,19 +1576,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/data-hasher@npm:^0.0.24":
-  version: 0.0.24
-  resolution: "@coinweb/data-hasher@npm:0.0.24"
+"@coinweb/data-hasher@npm:^0.0.25":
+  version: 0.0.25
+  resolution: "@coinweb/data-hasher@npm:0.0.25"
   dependencies:
     "@babel/polyfill": "npm:^7.12.1"
     "@coinweb/base64-polyfill": "npm:^0.0.2"
-    "@coinweb/contract-kit": "npm:^0.0.27"
+    "@coinweb/contract-kit": "npm:^0.0.28"
     "@noble/hashes": "npm:^1.3.2"
     "@types/npm": "npm:^7.19.3"
     bigint-polyfill: "npm:^0.1.0"
     jsbi: "npm:^4.3.0"
     text-encoding: "npm:^0.7.0"
-  checksum: 10c0/a7642f89614d24c3ccd58da9d10a46a0eefd182e4ade2d02931cac7e0f1616ff7e767bdbfc001e9543a946a161a547c0c1d7d2f8288f73bcc20310e8d45810e2
+  checksum: 10c0/5511851509eb786fb7317ee55a15b3da748652ad2e877d1af569a0bb4c5239e6f4962cf26bcfb748673dda4332f2981d76793d5b23b1bb783a9c135c997323ed
   languageName: node
   linkType: hard
 
@@ -1615,18 +1624,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/self-register@npm:^0.0.27":
-  version: 0.0.27
-  resolution: "@coinweb/self-register@npm:0.0.27"
+"@coinweb/self-register@npm:^0.0.28":
+  version: 0.0.28
+  resolution: "@coinweb/self-register@npm:0.0.28"
   dependencies:
     "@babel/polyfill": "npm:^7.12.1"
-    "@coinweb/contract-kit": "npm:^0.0.27"
-    "@coinweb/data-hasher": "npm:^0.0.24"
+    "@coinweb/contract-kit": "npm:^0.0.28"
+    "@coinweb/data-hasher": "npm:^0.0.25"
     "@noble/hashes": "npm:^1.3.2"
     bigint-polyfill: "npm:^0.1.0"
     jsbi: "npm:^4.3.0"
     text-encoding: "npm:^0.7.0"
-  checksum: 10c0/d6d0a8ef08e63b2c812114690c7819ffd50b85bdb8146f683d05378e5a09c5442b6519f742193924827daaabad444aa6a6ff2a292b728d7cef3f023554118144
+  checksum: 10c0/1cb0c8d91c2d173ae00cbb2c6c782441c087046bb1f5f485d0e731ccce47c70905173887d0c41d0c991b51fb660acd408429b6e34a2c2579e7e667760a9a2ec6
   languageName: node
   linkType: hard
 
@@ -5354,9 +5363,9 @@ __metadata:
     "@babel/node": "npm:^7.23.9"
     "@babel/plugin-syntax-bigint": "npm:^7.8.3"
     "@babel/preset-env": "npm:^7.24.0"
-    "@coinweb/contract-kit": "npm:^0.0.27"
+    "@coinweb/contract-kit": "npm:^0.0.28"
     "@coinweb/cweb-tool": "npm:1.0.32"
-    "@coinweb/self-register": "npm:^0.0.27"
+    "@coinweb/self-register": "npm:^0.0.28"
     "@coinweb/wallet-lib": "npm:^0.1.112-esm"
     "@types/lodash.isequal": "npm:^4.5.8"
     "@types/node": "npm:^20.11.28"
