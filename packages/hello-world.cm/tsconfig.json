@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2019",
+    "target": "ESNEXT",
     "module": "ESNEXT",
     "moduleResolution": "Bundler",
     "rootDir": "./src",

@@ -1,36 +1,26 @@
 import type { NewTx, Context, ContractHandlers } from "@coinweb/contract-kit";
 import {
-  getContractId,
-  continueTx,
-  passCwebFrom,
-  contractIssuer,
-  store,
-  genericClaim,
-  claimKey,
+  SELF_REGISTER_HANDLER_NAME,
   toHex,
   addDefaultMethodHandler,
   addMethodHandler,
-  SELF_REGISTER_HANDLER_NAME,
   executeHandler,
+  constructContinueTx,
+  constructClaimKey,
+  constructStore,
+  constructClaim,
 } from "@coinweb/contract-kit";
 import { selfRegisterHandler } from "@coinweb/self-register";
 import { EXAMPLE_BODY, EXAMPLE_KEY_FIRST_PART, EXAMPLE_KEY_SECOND_PART } from "../offchain/constants";
 
-function logic(context: Context): NewTx[] {
-  const { tx } = context;
-  const issuer = getContractId(tx);
-
+function logicHandler(context: Context): NewTx[] {
   return [
-    continueTx([
-      passCwebFrom(contractIssuer(issuer), 200),
-      store(
-        genericClaim(
-          // Key
-          claimKey(EXAMPLE_KEY_FIRST_PART, EXAMPLE_KEY_SECOND_PART),
-          // Value/Body
-          EXAMPLE_BODY,
-          // Fees stored in this claim
-          toHex(0)
+    constructContinueTx(context, [
+      constructStore(
+        constructClaim(
+          constructClaimKey(EXAMPLE_KEY_FIRST_PART, EXAMPLE_KEY_SECOND_PART),// Key
+          EXAMPLE_BODY,// Value/Body
+          toHex(0n)// Fees stored in this claim
         )
       ),
     ]),
@@ -39,7 +29,7 @@ function logic(context: Context): NewTx[] {
 
 export function cwebMain() {
   const module: ContractHandlers = { handlers: {} };
-  addDefaultMethodHandler(module, logic);
+  addDefaultMethodHandler(module, logicHandler); // same as addMethodHandler(module, DEFAULT_HANDLER_NAME...
   addMethodHandler(module, SELF_REGISTER_HANDLER_NAME, selfRegisterHandler);
   executeHandler(module);
 }
