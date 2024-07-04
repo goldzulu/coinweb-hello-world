@@ -15,7 +15,7 @@
     "prepare-for-package": "./scripts/make-call.sh",
     "call-contract": "yarn call-contract:prepare && yarn call-contract:invoke",
     "call-contract:prepare": "./scripts/make-single-call.sh",
-    "call-contract:invoke": "cweb-tool call deploy/calls.yaml ../../.cweb-config/mnemonic.txt DEVNET_L1A https://api-devnet.coinweb.io/wallet",
+    "call-contract:invoke": "cweb-tool call deploy/calls.yaml -c ./.cweb-config/config.json",
     "clean": "rm -rf cweb_dist dist .calls.yaml",
     "typecheck": "tsc --noEmit"
   },
