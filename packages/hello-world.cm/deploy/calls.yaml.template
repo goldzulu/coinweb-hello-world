@@ -4,5 +4,5 @@ __CWEB_CONTRACT_SELF_REFERENCE__:
   args:
     - "DEFAULT"
     - {}
-  cweb_provided: 80000
+  cweb_provided: "80000"
   auth: false

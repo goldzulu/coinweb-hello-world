@@ -18,9 +18,9 @@ function logicHandler(context: Context): NewTx[] {
     constructContinueTx(context, [
       constructStore(
         constructClaim(
-          constructClaimKey(EXAMPLE_KEY_FIRST_PART, EXAMPLE_KEY_SECOND_PART),// Key
-          EXAMPLE_BODY,// Value/Body
-          toHex(0n)// Fees stored in this claim
+          constructClaimKey(EXAMPLE_KEY_FIRST_PART, EXAMPLE_KEY_SECOND_PART), // Key
+          EXAMPLE_BODY, // Value/Body
+          toHex(0n) // Fees stored in this claim
         )
       ),
     ]),

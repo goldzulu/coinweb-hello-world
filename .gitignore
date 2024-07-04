@@ -30,7 +30,7 @@ install-state.gz
 .devcontainer/gid
 .devcontainer/uid
 
-.env.yarn.devnet
+!.env.yarn.devnet
 !.env.yarn
 
 .cweb-config/calls.yaml

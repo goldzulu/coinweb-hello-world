@@ -17,8 +17,6 @@ function App() {
 
   const { fetch, validate, greeting, contractId, isValid, isLoading } = useGreeting();
 
-  console.log('greeting', greeting, contractId);
-
   useEffect(() => {
     fetch();
   }, []);
