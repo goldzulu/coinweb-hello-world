@@ -22,22 +22,21 @@ mkdir -p $ROOT/{cweb_dist/{on,off}chain,dist/tmp/{step{1,2,3},final}}
 	dist/tmp/step1/onchain.js \
 	--outfile=dist/tmp/step2/onchain.js
 
-  yarn babel \
-	dist/tmp/step2 \
-  --out-dir dist/tmp/step3
-
-  yarn replace --silent "(?<![\.a-zA-Z])Number\(" "JSBI.toNumber(" dist/tmp/step3/onchain.js
+  echo 'import * as std from "std";' |
+	cat - dist/tmp/step2/onchain.js \
+  > dist/tmp/step3/onchain.js 
 
   yarn esbuild \
 	--bundle \
   --log-level=error \
+  --minify \
 	--format=esm \
+  --external:std \
+  --tree-shaking=true \
 	dist/tmp/step3/onchain.js \
 	--outfile=dist/tmp/final/onchain.js
 
-  echo 'import * as std from "std";' |
-	cat - dist/tmp/final/onchain.js \
-  > cweb_dist/onchain/index.js
+	cp dist/tmp/final/onchain.js cweb_dist/onchain/index.js
 )
 
 rm -rf $ROOT/dist/{tmp,offchain,onchain}
