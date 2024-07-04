@@ -26,7 +26,7 @@
   },
   "main": "dist/out/cweb_dist/offchain/index.js",
   "engines": {
-    "cweb_interpreter": "a59bfe9f094338753e18fe1ddf35ea3359a8a97f75c24418b1822c69770337ea"
+    "cweb_interpreter": "550d8ed63bfa58809cd2079cb7dda107626b8d74fcbbc65be7fd52e0926a3ea6"
   },
   "devDependencies": {
     "@coinweb/cweb-tool": "1.0.34",
