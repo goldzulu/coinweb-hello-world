@@ -23,7 +23,7 @@
     "test": "yarn workspaces foreach -Ap run test",
     "setup-ide:vscode": "yarn dlx @yarnpkg/sdks vscode",
     "install:with-node-modules": "yarn config set nodeLinker node-modules && yarn install",
-    "preinstall": "./scripts/preinstall.env.sh"
+    "preinstall": "node ./scripts/preinstall.env.mjs"
   },
   "resolutions": {
     "@coinweb/cweb-tool": "1.0.34",
