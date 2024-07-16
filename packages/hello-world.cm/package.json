@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "yarn build:files && yarn pack:all",
-    "build:files": "yarn clean && tsc -p tsconfig.build.json && NODE_ENV=production ./scripts/build.sh",
+    "build:files": "yarn clean && tsc -p tsconfig.build.json && NODE_ENV=production node ./scripts/build.mjs",
     "start": "node src/offchain/index.js",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -12,11 +12,11 @@
     "pack:all": "yarn pack:cweb && yarn pack:yarn",
     "pack:cweb": "NODE_NO_WARNINGS=1 cweb-tool pack . dist/out ../../.cweb-config/cweb-pack.yaml -c ../../.cweb-config/config.json",
     "pack:yarn": "cd dist/out && touch yarn.lock && yarn pack -o my-contract-module.tgz",
-    "prepare-for-package": "./scripts/make-call.sh",
+    "prepare-for-package": "node ./scripts/make-call.mjs",
     "call-contract": "yarn call-contract:prepare && yarn call-contract:invoke",
-    "call-contract:prepare": "./scripts/make-single-call.sh",
+    "call-contract:prepare": "node ./scripts/make-single-call.mjs",
     "call-contract:invoke": "cweb-tool call deploy/calls.yaml -c ../../.cweb-config/config.json",
-    "clean": "rm -rf cweb_dist dist .calls.yaml",
+    "clean": "rimraf cweb_dist dist .calls.yaml",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
