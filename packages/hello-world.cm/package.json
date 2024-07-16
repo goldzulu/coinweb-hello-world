@@ -12,9 +12,9 @@
     "pack:all": "yarn pack:cweb && yarn pack:yarn",
     "pack:cweb": "NODE_NO_WARNINGS=1 cweb-tool pack . dist/out ../../.cweb-config/cweb-pack.yaml -c ../../.cweb-config/config.json",
     "pack:yarn": "cd dist/out && touch yarn.lock && yarn pack -o my-contract-module.tgz",
-    "prepare-for-package": "./scripts/make-call.sh",
+    "prepare-for-package": "node ./scripts/make-call.mjs",
     "call-contract": "yarn call-contract:prepare && yarn call-contract:invoke",
-    "call-contract:prepare": "./scripts/make-single-call.sh",
+    "call-contract:prepare": "node ./scripts/make-single-call.mjs",
     "call-contract:invoke": "cweb-tool call deploy/calls.yaml -c ../../.cweb-config/config.json",
     "clean": "rimraf cweb_dist dist .calls.yaml",
     "typecheck": "tsc --noEmit"
