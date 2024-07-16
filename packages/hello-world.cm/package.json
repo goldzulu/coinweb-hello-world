@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "yarn build:files && yarn pack:all",
-    "build:files": "yarn clean && tsc -p tsconfig.build.json && NODE_ENV=production ./scripts/build.sh",
+    "build:files": "yarn clean && tsc -p tsconfig.build.json && NODE_ENV=production node ./scripts/build.mjs",
     "start": "node src/offchain/index.js",
     "test": "vitest run",
     "test:watch": "vitest",

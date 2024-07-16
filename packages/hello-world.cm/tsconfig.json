@@ -3,10 +3,9 @@
     "target": "ESNEXT",
     "module": "ESNEXT",
     "moduleResolution": "Bundler",
-    "rootDir": "./src",
+    "rootDir": ".",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "types": ["vitest/globals"]
   },
-  "include": ["src/**/*.ts"]
 }
