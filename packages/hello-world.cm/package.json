@@ -16,7 +16,7 @@
     "call-contract": "yarn call-contract:prepare && yarn call-contract:invoke",
     "call-contract:prepare": "./scripts/make-single-call.sh",
     "call-contract:invoke": "cweb-tool call deploy/calls.yaml -c ../../.cweb-config/config.json",
-    "clean": "rm -rf cweb_dist dist .calls.yaml",
+    "clean": "rimraf cweb_dist dist .calls.yaml",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
