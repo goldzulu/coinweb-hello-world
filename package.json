@@ -26,17 +26,17 @@
     "preinstall": "node ./scripts/preinstall.env.mjs"
   },
   "resolutions": {
-    "@coinweb/cweb-tool": "1.0.36",
-    "@coinweb/contract-kit": "0.1.7",
-    "@coinweb/self-register": "0.1.1",
-    "@coinweb/wallet-lib": "^0.1.113-esm"
+    "@coinweb/cweb-tool": "1.0.39",
+    "@coinweb/contract-kit": "0.1.11",
+    "@coinweb/self-register": "0.1.4",
+    "@coinweb/wallet-lib": "0.1.113-esm"
   },
   "devDependencies": {
-    "@coinweb/cweb-tool": "1.0.36",
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
+    "@coinweb/cweb-tool": "1.0.40",
+    "eslint": "^9.7.0",
+    "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
