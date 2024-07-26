@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { rmSync, mkdirSync, copyFileSync, cpSync, writeFileSync, readFileSync } from "node:fs";
 import { platform } from "node:os";
@@ -32,7 +32,7 @@ for (const path of Object.values(paths)) {
 cpSync(join(paths.dist_offchain, "."), paths.cweb_dist_offchain, { recursive: true });
 
 // Create onchain.js with the required content
-const onchainJsContent = `import {cwebMain as f} from "${paths.dist_onchain}/index.js"; f();\n`;
+const onchainJsContent = `import {cwebMain as f} from "${pathToFileUrl(resolve(paths.dist_onchain, index.js))}"; f();\n`;
 const onchainJsPath = join(paths.dist_tmp_step1, "onchain.js");
 writeFileSync(onchainJsPath, onchainJsContent);
 
