@@ -47,7 +47,7 @@ describe('App component', () => {
     expect(screen.getByText('Contract ID')).toBeInTheDocument();
   });
 
-  it('loads App with the validation form', async () => {
+  it('loads App with the validation form', () => {
     render(<App />);
 
     expect(fetchClaimsMock).toHaveBeenCalled();
@@ -57,7 +57,7 @@ describe('App component', () => {
     expect(screen.queryByText(/Second key/)).toBeInTheDocument();
   });
 
-  it('renders App without the validation form', async () => {
+  it('renders App without the validation form', () => {
     vi.spyOn(hooks, 'useGreeting').mockReturnValue({
       fetch: fetchClaimsMock,
       validate: validateClaimMock,
@@ -78,7 +78,7 @@ describe('App component', () => {
     expect(container.getElementsByClassName('loader')).toBeDefined();
   });
 
-  it('form is visible and user clicks on the button, then the Valid claim message is displayed', async () => {
+  it('form is visible and user clicks on the button, then the Valid claim message is displayed', () => {
     vi.spyOn(hooks, 'useGreeting').mockReturnValue({
       fetch: fetchClaimsMock,
       validate: validateClaimMock,

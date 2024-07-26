@@ -23,6 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "types": ["vitest/globals"]
   },
-  "include": ["src", "vitest.setup.ts", "vite-env.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "vitest.setup.ts", "vite-env.d.ts", "vite.config.ts"]
 }

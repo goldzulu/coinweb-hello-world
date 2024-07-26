@@ -1,15 +1,14 @@
 // This is the offchain part of the smart contract.
 // The code here is the one that will be authenticated.
 // In this scenario it represents an imaginary backend api.
-import isEqual from "lodash.isequal";
-import * as CwebWallet from "@coinweb/wallet-lib";
-import { NetworkName } from "@coinweb/wallet-lib/enums";
-import { claimFilter, correctClaim } from "./constants";
+import isEqual from 'lodash.isequal';
+import * as CwebWallet from '@coinweb/wallet-lib';
+import { NetworkName } from '@coinweb/wallet-lib/enums';
+import { claimFilter, correctClaim } from './constants';
 
-// @ts-expect-error
-const DEV_COINWEB_ENDPOINT = typeof window === "undefined" ? process.env.API_ENDPOINT_DEVNET : window.__API_URL__;
+const DEV_COINWEB_ENDPOINT = typeof window === 'undefined' ? process.env.API_ENDPOINT_DEVNET : window.__API_URL__;
 
-const cwebWalletNode = CwebWallet.connect_to_node(DEV_COINWEB_ENDPOINT as string);
+const cwebWalletNode = CwebWallet.connect_to_node(DEV_COINWEB_ENDPOINT);
 
 export type IssuedClaim = CwebWallet.GqlIssuedClaim & {
   content: {
@@ -22,7 +21,7 @@ export type IssuedClaim = CwebWallet.GqlIssuedClaim & {
 
 export type ClaimsResponse = {
   result: IssuedClaim[] | Error;
-  status: "success" | "error";
+  status: 'success' | 'error';
 };
 
 /**
@@ -43,9 +42,9 @@ export const fetchClaims = async (): Promise<ClaimsResponse> => {
       loadAllPages
     )) as IssuedClaim[];
 
-    return { result: fetchedClaims, status: "success" };
+    return { result: fetchedClaims, status: 'success' };
   } catch (error) {
-    return { result: error, status: "error" };
+    return { result: error as Error, status: 'error' };
   }
 };
 
@@ -56,6 +55,6 @@ export const fetchClaims = async (): Promise<ClaimsResponse> => {
  * @param claim The GqlIssuedClaim to check
  * @returns true if the claim is correct, false otherwise
  */
-export const validateClaim = async (claim: IssuedClaim): Promise<boolean> => {
+export const validateClaim = (claim: IssuedClaim): boolean => {
   return isEqual(claim, correctClaim);
 };

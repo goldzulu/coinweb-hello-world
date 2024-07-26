@@ -21,6 +21,7 @@
     "clean": "yarn clean:me && yarn workspaces foreach -Ap run clean",
     "clean:me": "rimraf .dapp-ecosystem-lock.yaml .unfiltered-actions.yaml .actions.yaml",
     "test": "yarn workspaces foreach -Ap run test",
+    "typecheck": "yarn workspaces foreach -Ap run typecheck",
     "setup-ide:vscode": "yarn dlx @yarnpkg/sdks vscode",
     "install:with-node-modules": "yarn config set nodeLinker node-modules && yarn install",
     "preinstall": "node ./scripts/preinstall.env.mjs"

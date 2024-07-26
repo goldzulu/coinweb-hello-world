@@ -29,7 +29,7 @@ describe('useGreeting hook', () => {
 
     // do not await to test isLoading
     act(() => {
-      result.current.fetch();
+      void result.current.fetch();
     });
 
     expect(result.current.isLoading).toBe(true);
@@ -54,7 +54,7 @@ describe('useGreeting hook', () => {
     expect(result.current.greeting).toEqual(mockClaim);
   });
 
-  it('should validate claim and update isValid state', async () => {
+  it('should validate claim and update isValid state', () => {
     const mockClaim = {
       firstKey: 'test',
       secondKey: 'claim',
@@ -65,8 +65,8 @@ describe('useGreeting hook', () => {
 
     const { result } = renderHook(() => useGreeting());
 
-    await act(async () => {
-      await result.current.validate(mockClaim);
+    act(() => {
+      result.current.validate(mockClaim);
     });
 
     expect(helloWorldCm.validateGreeting).toHaveBeenCalledWith(mockClaim);

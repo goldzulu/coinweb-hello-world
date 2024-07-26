@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import wasm from 'vite-plugin-wasm';
@@ -18,12 +17,5 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './vitest.setup.ts',
     silent: true,
-    deps: {
-      optimizer: {
-        web: {
-          include: ['@coinweb/wallet-lib'], // need this because of wasm
-        },
-      },
-    },
   },
 });

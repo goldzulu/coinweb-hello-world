@@ -1,6 +1,6 @@
-import * as api from "./api";
-import * as constants from "./constants";
-import type { IssuedClaim } from "./api";
+import * as api from './api';
+import * as constants from './constants';
+import type { IssuedClaim } from './api';
 
 export type { IssuedClaim };
 
@@ -10,7 +10,7 @@ export type Greeting = {
   secondKey: string | number;
 };
 
-export const validateGreeting = (claim: Greeting): Promise<boolean> => {
+export const validateGreeting = (claim: Greeting): boolean => {
   const claimToValidate = {
     issuer: {
       FromSmartContract: constants.contractId,
@@ -28,17 +28,17 @@ export const validateGreeting = (claim: Greeting): Promise<boolean> => {
   return api.validateClaim(claimToValidate);
 };
 
-export const getContractId = async (): Promise<string> => {
+export const getContractId = (): string => {
   return constants.contractId;
 };
 
 export const getGreeting = async (): Promise<Greeting> => {
   return api.fetchClaims().then((claimsResponse) => {
-    if (claimsResponse.status === "error") {
-      throw new Error("Failed to fetch claims from the network.");
+    if (claimsResponse.status === 'error') {
+      throw new Error('Failed to fetch claims from the network.');
     }
 
-    if (claimsResponse.status === "success") {
+    if (claimsResponse.status === 'success') {
       const [helloWorldClaim] = claimsResponse.result as IssuedClaim[];
 
       if (helloWorldClaim?.content?.body && helloWorldClaim?.content?.key) {
@@ -49,7 +49,7 @@ export const getGreeting = async (): Promise<Greeting> => {
         };
       }
 
-      throw new Error("Claim not found.");
+      throw new Error('Claim not found.');
     }
   });
 };

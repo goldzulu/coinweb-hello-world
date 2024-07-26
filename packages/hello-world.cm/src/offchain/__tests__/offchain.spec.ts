@@ -1,10 +1,10 @@
-import { Greeting, validateGreeting } from "..";
-import { correctClaim } from "../constants";
+import { Greeting, validateGreeting } from '..';
+import { correctClaim } from '../constants';
 
-describe("Offchain Tests", () => {
-  test("isClaimOk returns true for correct claim", async () => {
+describe('Offchain Tests', () => {
+  test('isClaimOk returns true for correct claim', () => {
     expect(
-      await validateGreeting({
+      validateGreeting({
         body: correctClaim?.content?.body,
         // @ts-expect-error
         firstKey: correctClaim?.content?.key?.first_part as string,
@@ -14,13 +14,13 @@ describe("Offchain Tests", () => {
     ).toBe(true);
   });
 
-  test("isClaimOk returns false for incorrect claim", async () => {
+  test('isClaimOk returns false for incorrect claim', () => {
     const incorrectClaim: Greeting = {
-      firstKey: "incorrect_first_part",
-      secondKey: "incorrect_second_part",
-      body: "incorrect_body",
+      firstKey: 'incorrect_first_part',
+      secondKey: 'incorrect_second_part',
+      body: 'incorrect_body',
     };
 
-    expect(await validateGreeting(incorrectClaim)).toBe(false);
+    expect(validateGreeting(incorrectClaim)).toBe(false);
   });
 });

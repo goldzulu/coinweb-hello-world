@@ -11,19 +11,20 @@ export const useGreeting = () => {
   const fetch = async () => {
     try {
       setIsLoadingGreeting(true);
-      await Promise.all([api.getContractId(), api.getGreeting()]).then(([contractIdentity, greetingClaim]) => {
-        contractId.current = contractIdentity;
+      await Promise.resolve(api.getGreeting()).then((greetingClaim) => {
+        contractId.current = api.getContractId();
         greeting.current = greetingClaim;
       });
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     } finally {
       setIsLoadingGreeting(false);
     }
   };
 
-  const validate = async (claim: Greeting): Promise<void> => {
-    const isClaimValid = await api.validateGreeting(claim);
+  const validate = (claim: Greeting): void => {
+    const isClaimValid = api.validateGreeting(claim);
     setIsValid(isClaimValid);
   };
 

@@ -18,7 +18,7 @@ function App() {
   const { fetch, validate, greeting, contractId, isValid, isLoading } = useGreeting();
 
   useEffect(() => {
-    fetch();
+    void fetch();
   }, []);
 
   useEffect(() => {
@@ -54,11 +54,11 @@ function App() {
   return (
     <>
       <header>
-        <a href="https://coinweb.io" target="_blank">
+        <a href="https://coinweb.io" target="_blank" rel="noreferrer">
           <img src={coinwebLogo} className="logo coinweb" alt="Coinweb logo" />
         </a>
         <span>{' x '}</span>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </header>

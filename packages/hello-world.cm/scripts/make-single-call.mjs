@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { readFileSync, writeFileSync } from 'node:fs';
 import yaml from 'js-yaml';
 import { dirname, join } from 'node:path';

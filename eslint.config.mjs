@@ -15,6 +15,12 @@ export default tseslint.config(
   // eslint recommended
   {
     ...eslint.configs.recommended,
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+      },
+    },
     rules: {
       ...eslint.configs.recommended.rules,
       'no-console': 'warn',

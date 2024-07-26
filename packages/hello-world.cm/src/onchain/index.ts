@@ -1,4 +1,4 @@
-import type { NewTx, Context, ContractHandlers } from "@coinweb/contract-kit";
+import type { NewTx, Context, ContractHandlers } from '@coinweb/contract-kit';
 import {
   SELF_REGISTER_HANDLER_NAME,
   toHex,
@@ -9,9 +9,9 @@ import {
   constructClaimKey,
   constructStore,
   constructClaim,
-} from "@coinweb/contract-kit";
-import { selfRegisterHandler } from "@coinweb/self-register";
-import { EXAMPLE_BODY, EXAMPLE_KEY_FIRST_PART, EXAMPLE_KEY_SECOND_PART } from "../offchain/constants";
+} from '@coinweb/contract-kit';
+import { selfRegisterHandler } from '@coinweb/self-register';
+import { EXAMPLE_BODY, EXAMPLE_KEY_FIRST_PART, EXAMPLE_KEY_SECOND_PART } from '../offchain/constants';
 
 function logicHandler(context: Context): NewTx[] {
   return [
