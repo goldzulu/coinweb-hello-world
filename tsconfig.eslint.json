@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "types": ["@types/node"],
+    "noEmit": true,
+    "allowJs": true
+  },
+  "exclude": ["dist", "node_modules"],
+  "include": ["eslint.config.mjs", ".prettierrc.mjs", "vitest.*.ts"]
+}
