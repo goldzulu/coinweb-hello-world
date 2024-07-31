@@ -30,7 +30,7 @@
     "cweb_interpreter": "550d8ed63bfa58809cd2079cb7dda107626b8d74fcbbc65be7fd52e0926a3ea6"
   },
   "devDependencies": {
-    "@coinweb/cweb-tool": "1.0.34",
+    "@coinweb/cweb-tool": "1.0.39",
     "@types/lodash.isequal": "^4.5.8",
     "@types/node": "^20.11.28",
     "esbuild": "^0.20.2",

@@ -1,10 +1,12 @@
 import { execSync } from 'node:child_process';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { rmSync, mkdirSync, copyFileSync, cpSync, writeFileSync, readFileSync } from 'node:fs';
 import { platform } from 'node:os';
 
-const yarnCommand = platform() === 'win32' ? 'yarn.cmd' : 'yarn';
+const isWin32 = platform() === 'win32';
+
+const yarnCommand = isWin32 ? 'yarn.cmd' : 'yarn';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -32,7 +34,13 @@ for (const path of Object.values(paths)) {
 cpSync(join(paths.dist_offchain, '.'), paths.cweb_dist_offchain, { recursive: true });
 
 // Create onchain.js with the required content
-const onchainJsContent = `import {cwebMain as f} from "${resolve(paths.dist_onchain, 'index.js')}"; f();\n`;
+let injectOnchainJsContentPath = join(paths.dist_onchain, 'index.js');
+
+if (isWin32) {
+  injectOnchainJsContentPath = injectOnchainJsContentPath.replace(/\\/g, '\\\\');
+}
+
+const onchainJsContent = `import {cwebMain as f} from "${injectOnchainJsContentPath}"; f();\n`;
 const onchainJsPath = join(paths.dist_tmp_step1, 'onchain.js');
 writeFileSync(onchainJsPath, onchainJsContent);
 
