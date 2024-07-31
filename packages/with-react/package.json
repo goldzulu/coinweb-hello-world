@@ -14,7 +14,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@coinweb/wallet-lib": "^0.1.112-esm",
+    "@coinweb/wallet-lib": "^0.1.113-esm",
     "hello-world.cm": "workspaces:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

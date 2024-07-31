@@ -33,7 +33,7 @@
     "@coinweb/wallet-lib": "0.1.113-esm"
   },
   "devDependencies": {
-    "@coinweb/cweb-tool": "1.0.40",
+    "@coinweb/cweb-tool": "1.0.39",
     "eslint": "^9.7.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-mdx": "^3.1.5",
