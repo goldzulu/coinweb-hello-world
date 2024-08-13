@@ -1,0 +1,20 @@
+devnet:
+  mnemonic: priority supply couple broccoli balcony sort flag keep original wrong pottery version
+  shardToWrite: DEVNET_L1A
+  shardToExecute: DEVNET_L1A
+  endpoint: https://api-devblue.coinhq.store/wallet
+
+  bootstrapConfig:
+    dataHasherId: c2f10bc4457361925183b1a50bddbf78403962e466f0e9f71d6035e6af1384b1
+    controllerId: ab44ac735643eb80b3780ed73984a0afc4fe13d404aa55db95b34f8dbdb80dcc
+    bootstrappingDependencies:
+    - 47da1f053b7a29099d6392a21047ecb5c7a39cbe723057b301b0f381a0077a3b
+
+  unsafe: true
+
+  gitRemoteLockIndexRepo: git@gitlab.com:coinweb/cweb-dapp-index.git
+  pathToIndexFile: .cweb-config/dapp-ecosystem.yaml
+  pathToLockIndexFile: .dapp-ecosystem-lock.yaml
+  pathToRawActionFile: ./.unfiltered-actions.yaml
+  pathToFilteredActionFile: .actions.yaml
+  packageRegistry: 'https://npm.coinweb.io'
