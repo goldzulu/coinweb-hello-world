@@ -302,47 +302,50 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/contract-kit@npm:0.1.11":
-  version: 0.1.11
-  resolution: "@coinweb/contract-kit@npm:0.1.11"
-  checksum: 10c0/0a67b9c0dba71c4cfb0efd413bd486948287e82b006d5d1ef130b61d35cdafe217174abb8cddef13a5f33f0410e4659d64fb5fcf23f22b9cda1c58b992dcde56
+"@coinweb/contract-kit@npm:0.1.10":
+  version: 0.1.10
+  resolution: "@coinweb/contract-kit@npm:0.1.10"
+  checksum: 10c0/954ffce4d92c2b7bb1c48a986d1d2e989c4d0d8c25b03760345451a0187b5317a2af2d6b7be8d6a2aceb84a12a6c979dedec93776b0795756b2cc78e5d44b67b
   languageName: node
   linkType: hard
 
-"@coinweb/cweb-tool@npm:1.0.39":
-  version: 1.0.39
-  resolution: "@coinweb/cweb-tool@npm:1.0.39"
+"@coinweb/cweb-tool@npm:2.0.8-dev":
+  version: 2.0.8-dev
+  resolution: "@coinweb/cweb-tool@npm:2.0.8-dev"
   dependencies:
-    "@coinweb/contract-kit": "npm:^0.1.7"
+    "@coinweb/contract-kit": "npm:^0.1.8"
     "@coinweb/cweb-vm-lib": "npm:^0.2.2"
-    "@coinweb/minimal-sdk": "npm:^1.0.21"
+    "@coinweb/minimal-sdk": "npm:1.2.7"
     "@coinweb/testing-sdk": "npm:0.0.7"
     "@coinweb/wallet-lib": "npm:^0.1.113-esm"
-    "@coinweb/webapp-library": "npm:^0.1.4"
+    "@coinweb/webapp-library": "npm:^0.1.7"
+    "@commander-js/extra-typings": "npm:^12.1.0"
     "@noble/hashes": "npm:^1.4.0"
     bip39: "npm:^3.1.0"
     chalk: "npm:^5.3.0"
-    commander: "npm:^12.0.0"
-    dir-compare: "npm:^4.2.0"
+    commander: "npm:^12.1.0"
+    dir-compare: "npm:^5.0.0"
     dotenv: "npm:^16.4.5"
     figlet: "npm:^1.7.0"
     glob: "npm:^10.3.10"
-    graphql: "npm:^16.8.1"
+    graphql: "npm:^16.9.0"
     graphql-request: "npm:^6.1.0"
     hdkey: "npm:^2.1.0"
-    joi: "npm:^17.12.2"
-    js-yaml: "npm:4.1.0"
+    joi: "npm:^17.13.3"
+    js-yaml: "npm:^4.1.0"
     json-stringify-deterministic: "npm:^1.0.12"
+    lodash.clonedeep: "npm:^4.5.0"
     lz4-wasm-nodejs: "npm:0.9.2"
     nanotar: "npm:^0.1.1"
     prompt: "npm:^1.3.0"
     qrcode-terminal: "npm:^0.12.0"
-    winston: "npm:^3.12.0"
+    strip-ansi: "npm:^7.1.0"
+    winston: "npm:^3.13.1"
     ws: "npm:^8.16.0"
     zen-observable-ts: "npm:^1.1.0"
   bin:
     cweb-tool: bin/cweb-tool.mjs
-  checksum: 10c0/abb37e6eabeaaa1dff8a01e0c5b14a9ac961442ca3419d914d2d18f9694de350a8c92f84a36fff9e733d39b683328f41830d8668b18bf8c39f774cf83fa51d90
+  checksum: 10c0/606b74bc9747ec4e82e879ddd253f3b3b736827eee21ac7ad04e4173d539b8d5fb9f3e6e7ba724945c34a393cc2130752d7939f6174a608358348dc181064c13
   languageName: node
   linkType: hard
 
@@ -355,7 +358,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/minimal-sdk@npm:^1.0.18, @coinweb/minimal-sdk@npm:^1.0.21":
+"@coinweb/minimal-sdk@npm:1.2.7":
+  version: 1.2.7
+  resolution: "@coinweb/minimal-sdk@npm:1.2.7"
+  dependencies:
+    "@coinweb/contract-kit": "npm:^0.1.8"
+    "@coinweb/cweb-vm-lib": "npm:^0.2.2"
+    "@coinweb/wallet-lib": "npm:0.1.113-esm"
+    "@noble/hashes": "npm:^1.4.0"
+    dir-compare: "npm:^5.0.0"
+    glob: "npm:^10.4.3"
+    graphql: "npm:^16.9.0"
+    graphql-request: "npm:^7.1.0"
+    joi: "npm:^17.13.3"
+    js-yaml: "npm:^4.1.0"
+    json-stringify-deterministic: "npm:^1.0.12"
+    lz4-wasm-nodejs: "npm:0.9.2"
+    nanotar: "npm:^0.1.1"
+    parse-tar: "npm:^1.2.2"
+    tar-stream: "npm:^3.1.7"
+    ws: "npm:^8.18.0"
+  checksum: 10c0/08eca610871604eac61ed528c4dfb173ab4f7791b132c5adb29edd28197a2949d5dd6b7a89cec7bec7fbe3bcbc843cc441a80a481cbd359fb8a66696c3e6e459
+  languageName: node
+  linkType: hard
+
+"@coinweb/minimal-sdk@npm:^1.0.18":
   version: 1.0.23
   resolution: "@coinweb/minimal-sdk@npm:1.0.23"
   dependencies:
@@ -375,20 +402,20 @@ __metadata:
     parse-tar: "npm:^1.2.2"
     tar-stream: "npm:^3.1.7"
     ws: "npm:^8.18.0"
-  checksum: 10c0/9aa47aac57866618ba8edd60fb0fa31c4868d98ef15fd3ef43a175b7dc28af9cee211a3bf4c13ec92d2afbb5140757e81d7242d8bad23f422f9e5b7a812c41ff
+  checksum: 10c0/b28c8b32ae4d55f26f19b37fa943675787705f90a80b2bea8547d48ba33f54c0e2f8ba9da827218753d08905f5c411e48f53f26a764b81ead558f8026a2fcafe
   languageName: node
   linkType: hard
 
-"@coinweb/self-register@npm:0.1.4":
-  version: 0.1.4
-  resolution: "@coinweb/self-register@npm:0.1.4"
+"@coinweb/self-register@npm:0.1.3":
+  version: 0.1.3
+  resolution: "@coinweb/self-register@npm:0.1.3"
   dependencies:
     "@babel/polyfill": "npm:^7.12.1"
     "@coinweb/base64-polyfill": "npm:^0.0.2"
-    "@coinweb/contract-kit": "npm:0.1.11"
+    "@coinweb/contract-kit": "npm:^0.1.7"
     "@noble/hashes": "npm:^1.4.0"
     text-encoding: "npm:^0.7.0"
-  checksum: 10c0/d29d73181fe28fc6b3e6294de8b7149423a0c6e6c41ff928eb67729e757c3aa53103bab65c11e7a981ec91cdc50bc808fc8f05729316bd322a5d3254455776e7
+  checksum: 10c0/789fdc56e69947f11fa837597eabc9e330243b98bbc0bc010f3697f80101555f20787ba9adf7cff91efba9c3cb0f007d995be0d9fb3b015abb42233b8090b84f
   languageName: node
   linkType: hard
 
@@ -412,7 +439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/webapp-library@npm:^0.1.4":
+"@coinweb/webapp-library@npm:^0.1.7":
   version: 0.1.7
   resolution: "@coinweb/webapp-library@npm:0.1.7"
   dependencies:
@@ -434,6 +461,15 @@ __metadata:
   version: 1.6.0
   resolution: "@colors/colors@npm:1.6.0"
   checksum: 10c0/9328a0778a5b0db243af54455b79a69e3fb21122d6c15ef9e9fcc94881d8d17352d8b2b2590f9bdd46fac5c2d6c1636dcfc14358a20c70e22daf89e1a759b629
+  languageName: node
+  linkType: hard
+
+"@commander-js/extra-typings@npm:^12.1.0":
+  version: 12.1.0
+  resolution: "@commander-js/extra-typings@npm:12.1.0"
+  peerDependencies:
+    commander: ~12.1.0
+  checksum: 10c0/5d29eaa724b577e2a52a393ad54992924d2559931b8e493ab892477b7a4e878e475c6bf771260f8585d835f7d8e17ae4a2656c191e9595d210ae0b48291c0b3d
   languageName: node
   linkType: hard
 
@@ -2591,7 +2627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^12.0.0":
+"commander@npm:^12.1.0":
   version: 12.1.0
   resolution: "commander@npm:12.1.0"
   checksum: 10c0/6e1996680c083b3b897bfc1cfe1c58dfbcd9842fd43e1aaf8a795fbc237f65efcc860a3ef457b318e73f29a4f4a28f6403c3d653d021d960e4632dd45bde54a9
@@ -2933,16 +2969,6 @@ __metadata:
   version: 5.2.0
   resolution: "diff@npm:5.2.0"
   checksum: 10c0/aed0941f206fe261ecb258dc8d0ceea8abbde3ace5827518ff8d302f0fc9cc81ce116c4d8f379151171336caf0516b79e01abdc1ed1201b6440d895a66689eb4
-  languageName: node
-  linkType: hard
-
-"dir-compare@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "dir-compare@npm:4.2.0"
-  dependencies:
-    minimatch: "npm:^3.0.5"
-    p-limit: "npm:^3.1.0 "
-  checksum: 10c0/615c6f6804095f912d98d49f9b56798ceebbc83612d660b7faa6bdb4894d978c02cfa1a30853a7319a269141e4f2a2034d4988a1985b58382614a3942f94e5b2
   languageName: node
   linkType: hard
 
@@ -4233,7 +4259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.8.1, graphql@npm:^16.9.0":
+"graphql@npm:^16.9.0":
   version: 16.9.0
   resolution: "graphql@npm:16.9.0"
   checksum: 10c0/a8850f077ff767377237d1f8b1da2ec70aeb7623cdf1dfc9e1c7ae93accc0c8149c85abe68923be9871a2934b1bce5a2496f846d4d56e1cfb03eaaa7ddba9b6a
@@ -4363,7 +4389,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hello-world-cweb-dapp@workspace:."
   dependencies:
-    "@coinweb/cweb-tool": "npm:1.0.39"
+    "@coinweb/cweb-tool": "npm:2.0.8-dev"
     eslint: "npm:^9.7.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-mdx: "npm:^3.1.5"
@@ -4383,7 +4409,7 @@ __metadata:
   resolution: "hello-world.cm@workspace:packages/hello-world.cm"
   dependencies:
     "@coinweb/contract-kit": "npm:^0.1.7"
-    "@coinweb/cweb-tool": "npm:1.0.34"
+    "@coinweb/cweb-tool": "npm:1.0.39"
     "@coinweb/self-register": "npm:^0.1.3"
     "@coinweb/wallet-lib": "npm:^0.1.113-esm"
     "@types/lodash.isequal": "npm:^4.5.8"
@@ -4992,7 +5018,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"joi@npm:^17.12.2, joi@npm:^17.13.3":
+"joi@npm:^17.13.3":
   version: 17.13.3
   resolution: "joi@npm:17.13.3"
   dependencies:
@@ -5288,6 +5314,13 @@ __metadata:
   version: 4.3.0
   resolution: "lodash.camelcase@npm:4.3.0"
   checksum: 10c0/fcba15d21a458076dd309fce6b1b4bf611d84a0ec252cb92447c948c533ac250b95d2e00955801ebc367e5af5ed288b996d75d37d2035260a937008e14eaf432
+  languageName: node
+  linkType: hard
+
+"lodash.clonedeep@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.clonedeep@npm:4.5.0"
+  checksum: 10c0/2caf0e4808f319d761d2939ee0642fa6867a4bbf2cfce43276698828380756b99d4c4fa226d881655e6ac298dd453fe12a5ec8ba49861777759494c534936985
   languageName: node
   linkType: hard
 
@@ -9107,9 +9140,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"winston@npm:^3.12.0":
-  version: 3.13.1
-  resolution: "winston@npm:3.13.1"
+"winston@npm:^3.13.1":
+  version: 3.14.1
+  resolution: "winston@npm:3.14.1"
   dependencies:
     "@colors/colors": "npm:^1.6.0"
     "@dabh/diagnostics": "npm:^2.0.2"
@@ -9122,7 +9155,7 @@ __metadata:
     stack-trace: "npm:0.0.x"
     triple-beam: "npm:^1.3.0"
     winston-transport: "npm:^4.7.0"
-  checksum: 10c0/986a542f17b71935b88c14465939bf7eaf64d8d13c18792f74b0eb19b31abdaf472df92049a1d7882405076aba95de13cdb5b3243d0c04c4f9632fac85f57788
+  checksum: 10c0/2d0f75a8110c00be97f71adee9f1afdba40a329659b98c6169062171304e34fe78877a9983a9dbd5755bbed3515a51f91cf582004e3781f1eb54de5b507e5207
   languageName: node
   linkType: hard
 
