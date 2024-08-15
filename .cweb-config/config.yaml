@@ -1,20 +1,62 @@
+#
+# When using `cweb-tool`, this is one of the profiles.  Use the `--profile devnet`
+# option to select this profile.
 devnet:
-  mnemonic: priority supply couple broccoli balcony sort flag keep original wrong pottery version
-  shardToWrite: DEVNET_L1A
-  shardToExecute: DEVNET_L1A
-  endpoint: https://api-devblue.coinweb.io/wallet
 
+  # The wallet secret for deploying.
+  mnemonic: priority supply couple broccoli balcony sort flag keep original wrong pottery version
+
+  # This is the shard `cweb-tool` will write L1 transactions to
+  shardToWrite: DEVNET_L1A
+
+  # This is the shard the smart contracts will be registered to.
+  # If this is different from the shardToWrite, then `cweb-tool` will wrap the action in a
+  # jump transaction so the transaction jumps from `shardToWrite`, to this shard for execution.
+  #
+  # Thus you can write to for example BNB and execute on Ethereum to save on cost.
+  shardToExecute: DEVNET_L1A
+
+  endpoint: https://api-devblue.coinhq.store/wallet
+
+  # The smart contracts used to upload data to a shard
   bootstrapConfig:
+    # This smart contract is a key/value store (using claims) that keeps all
+    # of the "files" in the file systems of the smart contracts you register
+    #
+    # When registering, you will upload files to this contract, but only those
+    # files that do not already exist here.
     dataHasherId: c2f10bc4457361925183b1a50bddbf78403962e466f0e9f71d6035e6af1384b1
+
+    # The controller, tied to the data hasher is responsible for combining chunks
+    # of data uploaded, decompressing, and giving the resulting file to the
+    # data hasher 
     controllerId: ab44ac735643eb80b3780ed73984a0afc4fe13d404aa55db95b34f8dbdb80dcc
     bootstrappingDependencies:
     - 47da1f053b7a29099d6392a21047ecb5c7a39cbe723057b301b0f381a0077a3b
 
+  # Whether to move CWEB into a temporary wallet before executing actions.
   unsafe: true
 
-  gitRemoteLockIndexRepo: null
+  # When this is configured, execution of actions will register the contract
+  # modules in this repo.
+  # 
+  #  gitRemoteLockIndexRepo: null
+  #
+  # This is the definition of the "world" as seen by the developer.
   pathToIndexFile: .cweb-config/dapp-ecosystem.yaml
+
+  # This is a generate file, from `yarn create-index`, a fully expanded version of
+  # the `dapp-ecosystem.yaml`.  You can potentially edit this file to remove things
+  # you do not want to have included in your "world" but you are unable to remove from
+  # `dapp-ecosystem.yaml`
   pathToLockIndexFile: .dapp-ecosystem-lock.yaml
+
+  # This is the raw list of actions required to generate everything in the
+  # `.dapp-ecosystem-lock.yarn`
   pathToRawActionFile: ./.unfiltered-actions.yaml
+
+  # This is the filtered list of actions, the output of `yarn filter-action`.
+  # .e. it is the raw action file with everything that already exists on the shard, removed.
   pathToFilteredActionFile: .actions.yaml
-  packageRegistry: null
+
+  #  packageRegistry: null
