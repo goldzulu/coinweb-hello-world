@@ -309,9 +309,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/cweb-tool@npm:2.0.12":
-  version: 2.0.12
-  resolution: "@coinweb/cweb-tool@npm:2.0.12"
+"@coinweb/cweb-tool@npm:2.0.13":
+  version: 2.0.13
+  resolution: "@coinweb/cweb-tool@npm:2.0.13"
   dependencies:
     "@coinweb/contract-kit": "npm:^0.1.8"
     "@coinweb/cweb-vm-lib": "npm:^0.2.2"
@@ -345,7 +345,7 @@ __metadata:
     zen-observable-ts: "npm:^1.1.0"
   bin:
     cweb-tool: bin/cweb-tool.mjs
-  checksum: 10c0/57a4de1577c5316a03157d8a6cd27d2843f61fbc691bb9418f05bbd9c58c3e2c69ea9ed88dcf6c73fbf3c9839de32cb2fbadc922021f1cf9ff8a67b9bac2ebf4
+  checksum: 10c0/1d709ab6a708ee7032913f0d460bf0fb16faf11e4efe28e84b13180ed46ef4b2ddb657509b217e4bd7f42a987b249d89b1fde454bdd8d4bc76181d5a510c3b6c
   languageName: node
   linkType: hard
 
@@ -402,7 +402,7 @@ __metadata:
     parse-tar: "npm:^1.2.2"
     tar-stream: "npm:^3.1.7"
     ws: "npm:^8.18.0"
-  checksum: 10c0/b28c8b32ae4d55f26f19b37fa943675787705f90a80b2bea8547d48ba33f54c0e2f8ba9da827218753d08905f5c411e48f53f26a764b81ead558f8026a2fcafe
+  checksum: 10c0/9aa47aac57866618ba8edd60fb0fa31c4868d98ef15fd3ef43a175b7dc28af9cee211a3bf4c13ec92d2afbb5140757e81d7242d8bad23f422f9e5b7a812c41ff
   languageName: node
   linkType: hard
 

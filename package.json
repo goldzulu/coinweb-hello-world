@@ -27,7 +27,7 @@
     "preinstall": "node ./scripts/preinstall.env.mjs"
   },
   "resolutions": {
-    "@coinweb/cweb-tool": "2.0.12",
+    "@coinweb/cweb-tool": "2.0.13",
     "@coinweb/contract-kit": "0.1.10",
     "@coinweb/self-register": "0.1.3",
     "@coinweb/wallet-lib": "0.1.113-esm"
