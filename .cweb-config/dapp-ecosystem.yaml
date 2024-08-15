@@ -11,7 +11,7 @@
 # We currently use a reference to the Coinweb in-house ecosystem definition file for devnet.
 includes:
   - url: >-
-      https://gitlab.com/coinweb/cweb-dapp-index/-/raw/caf36f684e6acde48ee54b7eca87ef12f18af7f2/dapp_lock_index.yaml
+      https://gitlab.com/coinweb/cweb-dapp-index/-/raw/94334c48b651ed4937eda38e1b88ddd5daeac4ce/dapp_lock_index.yaml
     blake3: "bf20f9e2d21a7a2e0f4cfc83c771dd9acabe75bcb79281d1b7558dd99f4ad31a"
 
 interpreters: {}

@@ -309,13 +309,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/cweb-tool@npm:2.0.8-dev":
-  version: 2.0.8-dev
-  resolution: "@coinweb/cweb-tool@npm:2.0.8-dev"
+"@coinweb/cweb-tool@npm:2.0.12":
+  version: 2.0.12
+  resolution: "@coinweb/cweb-tool@npm:2.0.12"
   dependencies:
     "@coinweb/contract-kit": "npm:^0.1.8"
     "@coinweb/cweb-vm-lib": "npm:^0.2.2"
-    "@coinweb/minimal-sdk": "npm:1.2.7"
+    "@coinweb/minimal-sdk": "npm:1.2.11"
     "@coinweb/testing-sdk": "npm:0.0.7"
     "@coinweb/wallet-lib": "npm:^0.1.113-esm"
     "@coinweb/webapp-library": "npm:^0.1.7"
@@ -345,7 +345,7 @@ __metadata:
     zen-observable-ts: "npm:^1.1.0"
   bin:
     cweb-tool: bin/cweb-tool.mjs
-  checksum: 10c0/606b74bc9747ec4e82e879ddd253f3b3b736827eee21ac7ad04e4173d539b8d5fb9f3e6e7ba724945c34a393cc2130752d7939f6174a608358348dc181064c13
+  checksum: 10c0/57a4de1577c5316a03157d8a6cd27d2843f61fbc691bb9418f05bbd9c58c3e2c69ea9ed88dcf6c73fbf3c9839de32cb2fbadc922021f1cf9ff8a67b9bac2ebf4
   languageName: node
   linkType: hard
 
@@ -358,9 +358,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coinweb/minimal-sdk@npm:1.2.7":
-  version: 1.2.7
-  resolution: "@coinweb/minimal-sdk@npm:1.2.7"
+"@coinweb/minimal-sdk@npm:1.2.11":
+  version: 1.2.11
+  resolution: "@coinweb/minimal-sdk@npm:1.2.11"
   dependencies:
     "@coinweb/contract-kit": "npm:^0.1.8"
     "@coinweb/cweb-vm-lib": "npm:^0.2.2"
@@ -378,7 +378,7 @@ __metadata:
     parse-tar: "npm:^1.2.2"
     tar-stream: "npm:^3.1.7"
     ws: "npm:^8.18.0"
-  checksum: 10c0/08eca610871604eac61ed528c4dfb173ab4f7791b132c5adb29edd28197a2949d5dd6b7a89cec7bec7fbe3bcbc843cc441a80a481cbd359fb8a66696c3e6e459
+  checksum: 10c0/39333f3c4c48517744d19ba1a4401813ddb8bf845b03a274d24556b7d01624a224459ab04664ba67d33c38d72c47deaafca6444c122811a3df083b9767f8f968
   languageName: node
   linkType: hard
 
@@ -4389,7 +4389,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hello-world-cweb-dapp@workspace:."
   dependencies:
-    "@coinweb/cweb-tool": "npm:2.0.8-dev"
+    "@coinweb/cweb-tool": "npm:2.0.12"
     eslint: "npm:^9.7.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-mdx: "npm:^3.1.5"
@@ -4408,8 +4408,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hello-world.cm@workspace:packages/hello-world.cm"
   dependencies:
-    "@coinweb/contract-kit": "npm:^0.1.7"
-    "@coinweb/cweb-tool": "npm:1.0.39"
+    "@coinweb/contract-kit": "npm:0.1.10"
+    "@coinweb/cweb-tool": "npm:2.0.12"
     "@coinweb/self-register": "npm:^0.1.3"
     "@coinweb/wallet-lib": "npm:^0.1.113-esm"
     "@types/lodash.isequal": "npm:^4.5.8"
